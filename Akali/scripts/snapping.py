@@ -18,7 +18,7 @@ def fkIkSnapping():
             #Add Namespace if needed
             findNameSpace   = cmds.namespaceInfo(listOnlyNamespaces=True, recurse=True)[0]
             
-            if findNameSpace:
+            if findNameSpace in swapCtrl:
                 addName = findNameSpace+":"
             else:
                 addName = ""
@@ -50,16 +50,20 @@ def fkIkSnapping():
                 getAnkleLoc      = cmds.getAttr(swapCtrl+".Ankle_LOC")
                 getPVLOC         = cmds.getAttr(swapCtrl+".Pole_LOC")
                 
-                getAnklePosLOC   = cmds.getAttr(addName+getAnkleLoc+".translate")[0]
-                getAnkleRotLOC   = cmds.getAttr(addName+getAnkleLoc+".rotate")[0]
+                cmds.delete(cmds.parentConstraint(addName+getAnkleLoc, addName+getIKControl, w=1, mo=0))
+                cmds.delete(cmds.pointConstraint(addName+getPVLOC, addName+getIKPVControl, w=1, mo=0))
                 
-                getPVPosLOC      = cmds.getAttr(addName+getPVLOC+".translate")[0]
+                #getAnklePosLOC   = cmds.getAttr(addName+getAnkleLoc+".translate")[0]
+                #getAnkleRotLOC   = cmds.getAttr(addName+getAnkleLoc+".rotate")[0]
+                
+                #getPVPosLOC      = cmds.getAttr(addName+getPVLOC+".translate")[0]
+
                 
                 #Now set the values to the IK controls
-                cmds.setAttr(addName+getIKControl+".translate", getAnklePosLOC[0], getAnklePosLOC[1], getAnklePosLOC[2], type="double3")
-                cmds.setAttr(addName+getIKControl+".rotate", getAnkleRotLOC[0], getAnkleRotLOC[1], getAnkleRotLOC[2], type="double3")
+                #cmds.setAttr(addName+getIKControl+".translate", getAnklePosLOC[0], getAnklePosLOC[1], getAnklePosLOC[2], type="double3")
+                #cmds.setAttr(addName+getIKControl+".rotate", getAnkleRotLOC[0], getAnkleRotLOC[1], getAnkleRotLOC[2], type="double3")
                 
-                cmds.setAttr(addName+getIKPVControl+".translate", getPVPosLOC[0], getPVPosLOC[1], getPVPosLOC[2], type="double3")
+                #cmds.setAttr(addName+getIKPVControl+".translate", getPVPosLOC[0], getPVPosLOC[1], getPVPosLOC[2], type="double3")
                 
                 #Switch back
                 cmds.setAttr(swapCtrl+".IK_FK_Switching", 0)
@@ -70,4 +74,4 @@ def fkIkSnapping():
     else:
         sys.stderr.write("Error! Nothing was selected")
        
-fkIkSnapping()    
+fkIkSnapping()  

@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: Akali_Base_RIG.ma
-//Last modified: Wed, Feb 23, 2022 02:28:53 AM
+//Last modified: Mon, Oct 31, 2022 11:51:22 PM
 //Codeset: 1252
 file -rdi 1 -ns "Akali_Base_SKIN" -rfn "Akali_Base_SKINRN" -op "v=0;" -typ "mayaAscii"
 		 "/Akali_Base_SKIN.ma";
@@ -14,22 +14,22 @@ fileInfo "application" "maya";
 fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202011110415-b1e20b88e2";
-fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19042)\n";
-fileInfo "UUID" "F4493E32-47AC-48B3-4FA1-C588D9681527";
+fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19044)\n";
+fileInfo "UUID" "53AE2A3E-4D50-57F8-1401-748D084C2DCE";
 createNode transform -s -n "persp";
 	rename -uid "E0474B56-4D1A-20F9-408A-A88881ECFE53";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -49.085970177491639 107.02795217842984 283.59835059216277 ;
-	setAttr ".r" -type "double3" 352.46164614098012 -20168.599999976599 -2.0104514255442457e-16 ;
+	setAttr ".t" -type "double3" -106.4028930481001 160.50446509751194 139.09867035499204 ;
+	setAttr ".r" -type "double3" 346.46164614312437 -20197.399999997047 -2.0018228511420629e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "135F7D98-4A6A-BED4-C948-1B962AA2A118";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 279.06086089342222;
+	setAttr ".coi" 192.89555821948483;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -6.0720561007337537 5.4045095276135058 8.2029737749778899 ;
+	setAttr ".tp" -type "double3" 0 139.65201635823149 9.30229391987816 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -203,7 +203,7 @@ createNode ikHandle -n "IK_Spline01_IkSpline" -p "Controls";
 	rename -uid "045EF9CB-47A7-2310-1B36-8BA35E68430E";
 	setAttr ".v" no;
 	setAttr ".t" -type "double3" 6.3762550570768145e-15 112.43001294942937 5.8654401076625184 ;
-	setAttr ".r" -type "double3" 2.031152358284913e-12 11.034949326514287 89.999999999999986 ;
+	setAttr ".r" -type "double3" 2.031152358284913e-12 11.034949326514289 89.999999999999986 ;
 	setAttr ".roc" yes;
 	setAttr ".dwut" 4;
 	setAttr ".dwua" 4;
@@ -286,7 +286,7 @@ createNode parentConstraint -n "L_Ankle_Matching_LOC_parentConstraint1" -p "L_An
 	setAttr ".tg[0].tor" -type "double3" 157.9032170320597 91.415806110132223 18.873369460582623 ;
 	setAttr ".lr" -type "double3" 94.709561114615894 5.2925598421984255 22.104190192980951 ;
 	setAttr ".rst" -type "double3" -8.8817841970012523e-16 0 1.3322676295501878e-15 ;
-	setAttr ".rsrr" -type "double3" 1.272221872585407e-13 0 0 ;
+	setAttr ".rsrr" -type "double3" 1.2722218725854072e-13 0 0 ;
 	setAttr -k on ".w0";
 createNode transform -n "L_Foot_PV_Matching_LOC" -p "Leg_FKIK_Matching_LOC_Grp";
 	rename -uid "C00F8753-46A6-2584-925D-6883F4C6EA83";
@@ -586,10 +586,12 @@ createNode transform -n "World_FK_Ctrl" -p "UE4_Scale_Fix_Grp";
 	addAttr -ci true -sn "Resolution" -ln "Resolution" -min 0 -max 1 -en "Proxy:High" 
 		-at "enum";
 	addAttr -ci true -sn "Jacket_Mesh_Vis" -ln "Jacket_Mesh_Vis" -min 0 -max 1 -at "bool";
+	addAttr -ci true -sn "Mask_Mesh_Vis" -ln "Mask_Mesh_Vis" -min 0 -max 1 -at "bool";
 	setAttr -l on -k off ".v";
 	setAttr -k on ".ATTR";
 	setAttr -k on ".Resolution" 1;
 	setAttr -k on ".Jacket_Mesh_Vis";
+	setAttr -k on ".Mask_Mesh_Vis" yes;
 createNode nurbsCurve -n "World_FK_CtrlShape" -p "World_FK_Ctrl";
 	rename -uid "DB4E6404-4A7F-9C51-6B2F-22909052F8CD";
 	setAttr -k off ".v";
@@ -13410,6 +13412,8 @@ createNode transform -n "Akali_Base_SKIN:SKIN_Upper_Lip_Jnt_Driver02" -p "Akali_
 createNode transform -n "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl" -p "Akali_Base_SKIN:SKIN_Upper_Lip_Jnt_Driver02";
 	rename -uid "E7AFDB65-4AFE-0504-23D3-0294CF92A4F4";
 	setAttr -l on -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 17;
 createNode nurbsCurve -n "curveShape69" -p "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl";
 	rename -uid "C689EF26-4949-B84A-2537-4A960FDAC3F4";
 	setAttr -k off ".v";
@@ -13510,6 +13514,8 @@ createNode transform -n "Akali_Base_SKIN:SKIN_Lower_Lip_Jnt_Driver02" -p "Akali_
 createNode transform -n "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl" -p "Akali_Base_SKIN:SKIN_Lower_Lip_Jnt_Driver02";
 	rename -uid "CD315BF2-4F33-3249-5575-B18B3E157A50";
 	setAttr -l on -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 17;
 	setAttr ".rp" -type "double3" -1.5407439555097887e-33 0 0 ;
 	setAttr ".sp" -type "double3" -1.5407439555097887e-33 0 0 ;
 createNode nurbsCurve -n "curveShape68" -p "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl";
@@ -33112,24 +33118,7 @@ createNode camera -n "bottomShape" -p "bottom";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode fosterParent -n "Akali_Base_SKINRNfosterParent2";
-	rename -uid "49637C60-45A3-648A-ABF2-11803A522AA9";
-createNode scaleConstraint -n "SKIN_Root_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "82E8A9E2-487A-77DA-F787-E6840890613A";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Root_JntW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
-	setAttr -k on ".w0";
+	rename -uid "AE86121A-41BF-5F74-B324-6CB3BD74157F";
 createNode parentConstraint -n "SKIN_Root_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "6378AEB0-4CA8-89A8-BBE7-E98B971982F5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Root_JntW0" -dv 1 -min 0 -at "double";
@@ -33151,9 +33140,9 @@ createNode parentConstraint -n "SKIN_Root_Jnt_parentConstraint2" -p "Akali_Base_
 	setAttr ".lr" -type "double3" 0 0 -1.0686663729717417e-12 ;
 	setAttr ".rst" -type "double3" 0 94.162336018555649 6.8866229413149407 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Hip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "891C99D4-4B53-2446-EFBA-239AF933B832";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Hip_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Root_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "82E8A9E2-487A-77DA-F787-E6840890613A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Root_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33189,9 +33178,9 @@ createNode parentConstraint -n "SKIN_Hip_Jnt_parentConstraint2" -p "Akali_Base_S
 	setAttr ".lr" -type "double3" 0 0 -1.5902773407317584e-14 ;
 	setAttr ".rst" -type "double3" -1.7210706240005038 0 0 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Leg_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E3301ACE-46ED-B6CA-04A4-3ABCC8F77EBD";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Leg_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Hip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "891C99D4-4B53-2446-EFBA-239AF933B832";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Hip_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33230,9 +33219,9 @@ createNode parentConstraint -n "SKIN_L_Leg_Jnt_parentConstraint2" -p "Akali_Base
 	setAttr ".rsrr" -type "double3" -2.0091549729489522e-29 -5.4622351845350352e-22 
 		-1.987846675914698e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Knee_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "1E9206E1-4002-E21B-4CFF-A3A3D6236201";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Knee_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Leg_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E3301ACE-46ED-B6CA-04A4-3ABCC8F77EBD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Leg_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33269,9 +33258,9 @@ createNode parentConstraint -n "SKIN_L_Knee_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rst" -type "double3" -40.518186636690643 -2.5681070425775943e-07 2.6645352591003757e-15 ;
 	setAttr ".rsrr" -type "double3" 0 0 3.975693351829396e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Ankle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "2EA1D60A-43FB-24DB-F220-539E83251EA4";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ankle_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Knee_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "1E9206E1-4002-E21B-4CFF-A3A3D6236201";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Knee_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33284,7 +33273,7 @@ createNode scaleConstraint -n "SKIN_L_Ankle_Jnt_scaleConstraint1" -p "Akali_Base
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Ankle_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "D750B177-4541-A489-B461-958D12341928";
@@ -33309,9 +33298,9 @@ createNode parentConstraint -n "SKIN_L_Ankle_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" -39.943486612641301 -1.2017337628789093e-05 -4.4408920985006262e-15 ;
 	setAttr ".rsrr" -type "double3" 5.9910661779917525e-08 2.0480832010269351e-08 4.8545310385617301e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Foot_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "8CDA69B0-4921-5A1A-F862-279038858EF8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Foot_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Ankle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "2EA1D60A-43FB-24DB-F220-539E83251EA4";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ankle_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33350,9 +33339,9 @@ createNode parentConstraint -n "SKIN_L_Foot_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rsrr" -type "double3" -4.4726550287827408e-16 -6.7480147256500592e-08 
 		1.3542205482302715e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Foot_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "B09920B1-4DD0-9970-A419-688D58BABBE7";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Foot_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Foot_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "8CDA69B0-4921-5A1A-F862-279038858EF8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Foot_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33365,7 +33354,7 @@ createNode scaleConstraint -n "SKIN_L_Foot_End_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Foot_End_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "DC5B1090-43D3-AC5D-AAB4-42A84A017C8B";
@@ -33390,9 +33379,9 @@ createNode parentConstraint -n "SKIN_L_Foot_End_Jnt_parentConstraint1" -p "Akali
 	setAttr ".rst" -type "double3" -6.5734537500000005 1.6431300764452317e-14 -8.8817841970012523e-15 ;
 	setAttr ".rsrr" -type "double3" 4.2183696821477844e-36 1.3352110661537879e-13 3.6203231884414666e-21 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Leg_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "C28D47E2-4100-BCDA-B4F4-B1AE452B205B";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Leg_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Foot_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "B09920B1-4DD0-9970-A419-688D58BABBE7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Foot_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33405,7 +33394,7 @@ createNode scaleConstraint -n "SKIN_R_Leg_Jnt_scaleConstraint1" -p "Akali_Base_S
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Leg_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "58FACF74-4926-DC3F-1522-BB9D04024B4A";
@@ -33430,9 +33419,9 @@ createNode parentConstraint -n "SKIN_R_Leg_Jnt_parentConstraint2" -p "Akali_Base
 	setAttr ".rst" -type "double3" -2.0488721743370633 -0.80858279051863757 -6.2065811626023377 ;
 	setAttr ".rsrr" -type "double3" 1.4345269385703448e-21 -5.2623418492784879e-29 -6.5877200789566201e-52 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Knee_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "D721BA62-4C41-68D8-F0F9-EF92EFA0D4F8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Knee_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Leg_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "C28D47E2-4100-BCDA-B4F4-B1AE452B205B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Leg_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33469,9 +33458,9 @@ createNode parentConstraint -n "SKIN_R_Knee_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rst" -type "double3" 40.51826179517554 -5.3290705182007514e-15 1.2434497875801753e-14 ;
 	setAttr ".rsrr" -type "double3" 0 0 1.1927080055488188e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Ankle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "4D6A073E-407E-A565-2CD5-C8AEE42AD301";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ankle_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Knee_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "D721BA62-4C41-68D8-F0F9-EF92EFA0D4F8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Knee_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33509,9 +33498,9 @@ createNode parentConstraint -n "SKIN_R_Ankle_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 39.9434112418149 -5.084821452783217e-14 7.1054273576010019e-15 ;
 	setAttr ".rsrr" -type "double3" -1.9878466929877971e-16 2.0477444023787261e-08 -9.5540880861505404e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Foot_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "7445B023-41C2-2CCC-4CE2-4D85BEF745D2";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Foot_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Ankle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "4D6A073E-407E-A565-2CD5-C8AEE42AD301";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ankle_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33524,7 +33513,7 @@ createNode scaleConstraint -n "SKIN_R_Foot_Jnt_scaleConstraint1" -p "Akali_Base_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Foot_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "8E861220-48C8-F6B5-47FA-C59194413360";
@@ -33550,9 +33539,9 @@ createNode parentConstraint -n "SKIN_R_Foot_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rsrr" -type "double3" -5.6636110918578953e-07 -1.0821827954836702e-06 
 		1.5525459197796438e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Foot_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "6898A2FB-4D2A-6550-B4EF-39ACF317D3E5";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Foot_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Foot_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "7445B023-41C2-2CCC-4CE2-4D85BEF745D2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Foot_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33565,7 +33554,7 @@ createNode scaleConstraint -n "SKIN_R_Foot_End_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Foot_End_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "3BF4B5A8-4CBE-4E6C-22F4-CFA1BD3ACE16";
@@ -33589,9 +33578,9 @@ createNode parentConstraint -n "SKIN_R_Foot_End_Jnt_parentConstraint1" -p "Akali
 	setAttr ".rst" -type "double3" 6.5734415383776419 -1.2878587085651816e-14 1.3322676295501878e-14 ;
 	setAttr ".rsrr" -type "double3" 0 0 -3.791516639546772e-22 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Spine01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "EAC078BA-4C20-4038-6C21-B18EA0CADA1D";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine01_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Foot_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "6898A2FB-4D2A-6550-B4EF-39ACF317D3E5";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Foot_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33604,7 +33593,7 @@ createNode scaleConstraint -n "SKIN_Spine01_Jnt_scaleConstraint1" -p "Akali_Base
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Spine01_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "7BDCB403-4143-0F13-C9AC-6B992B2C8D57";
@@ -33628,9 +33617,9 @@ createNode parentConstraint -n "SKIN_Spine01_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 2.2881617298967001 0 2.3665827156630354e-30 ;
 	setAttr ".rsrr" -type "double3" 0 0 -7.9513867036587919e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Spine02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "20D62DA2-4267-2E06-CE7B-EE99D09DE942";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine02_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Spine01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "EAC078BA-4C20-4038-6C21-B18EA0CADA1D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine01_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33666,9 +33655,9 @@ createNode parentConstraint -n "SKIN_Spine02_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".lr" -type "double3" 0 0 1.8685758753598154e-14 ;
 	setAttr ".rst" -type "double3" 3.4861494260156007 8.8817841970012523e-16 -1.6566079009641248e-29 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Spine03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "C3BB09D3-40C8-2390-336B-A6B84D9BED57";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine03_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Spine02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "20D62DA2-4267-2E06-CE7B-EE99D09DE942";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine02_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33681,7 +33670,7 @@ createNode scaleConstraint -n "SKIN_Spine03_Jnt_scaleConstraint1" -p "Akali_Base
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Spine03_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "44F93574-4174-A835-CF09-BBBFA0A20A96";
@@ -33705,9 +33694,9 @@ createNode parentConstraint -n "SKIN_Spine03_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 4.5162101589570653 1.7763568394002505e-15 1.8932661725304286e-29 ;
 	setAttr ".rsrr" -type "double3" 0 0 4.7708320221952744e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Spine04_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E3C96625-40EC-4B52-E1BF-1EBE398EEE33";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine04_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Spine03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "C3BB09D3-40C8-2390-336B-A6B84D9BED57";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine03_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33743,9 +33732,9 @@ createNode parentConstraint -n "SKIN_Spine04_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".lr" -type "double3" 0 0 7.3947896344026762e-14 ;
 	setAttr ".rst" -type "double3" 3.7861955551461079 -3.5527136788005009e-15 -1.7354939914862265e-29 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Spine05_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "64899F47-453C-6A30-C8F1-988BBF8E9721";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine05_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Spine04_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E3C96625-40EC-4B52-E1BF-1EBE398EEE33";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine04_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33782,9 +33771,9 @@ createNode parentConstraint -n "SKIN_Spine05_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 4.285966980539996 3.5527136788005009e-15 6.1629758220392108e-31 ;
 	setAttr ".rsrr" -type "double3" 0 0 9.7062825972397362e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Clavicle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "41A2B54F-436E-A9C6-64A9-41A257D3F091";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Clavicle_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Spine05_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "64899F47-453C-6A30-C8F1-988BBF8E9721";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Spine05_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33822,9 +33811,9 @@ createNode parentConstraint -n "SKIN_L_Clavicle_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 12.934507201353725 4.387406396278795 1.2220683749999965 ;
 	setAttr ".rsrr" -type "double3" 6.3611093629270335e-15 3.1805546814635168e-15 -3.1805546814635168e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Arm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "21D68E9F-494F-C3DB-A857-FBA6A4A3C85F";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Arm_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Clavicle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "41A2B54F-436E-A9C6-64A9-41A257D3F091";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Clavicle_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33837,7 +33826,7 @@ createNode scaleConstraint -n "SKIN_L_Arm_Jnt_scaleConstraint1" -p "Akali_Base_S
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Arm_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "E4D5FD88-45CC-8DF4-1470-5FAA92FC9FFB";
@@ -33862,9 +33851,9 @@ createNode parentConstraint -n "SKIN_L_Arm_Jnt_parentConstraint2" -p "Akali_Base
 	setAttr ".rst" -type "double3" 11.160036471736497 0.0001548351174420759 -2.0237654725363541e-05 ;
 	setAttr ".rsrr" -type "double3" 7.9513867036618101e-15 -7.9513867033566966e-16 -4.3536466160144086e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Elbow_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "DD8864B7-4F96-8A43-A32C-579E254273BE";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Elbow_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Arm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "21D68E9F-494F-C3DB-A857-FBA6A4A3C85F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Arm_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33877,7 +33866,7 @@ createNode scaleConstraint -n "SKIN_L_Elbow_Jnt_scaleConstraint1" -p "Akali_Base
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Elbow_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "A07B9590-45B1-D221-6C7E-C59A5E50B23D";
@@ -33902,9 +33891,9 @@ createNode parentConstraint -n "SKIN_L_Elbow_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 19.960120492815122 -0.00010692180117644057 -0.73932851249999687 ;
 	setAttr ".rsrr" -type "double3" 4.7381893388565097e-15 -2.3675050878078756e-15 -8.5916533393399688e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Wrist_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "13364777-4249-8632-1640-6F91DA40D707";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Wrist_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Elbow_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "DD8864B7-4F96-8A43-A32C-579E254273BE";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Elbow_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33942,10 +33931,9 @@ createNode parentConstraint -n "SKIN_L_Wrist_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" 21.106567806517603 4.3484099848001279e-05 0.73932851249841236 ;
 	setAttr ".rsrr" -type "double3" 4.1757677689796282e-15 -1.1619773366140499e-15 -7.0306161233748749e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Thumb_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "8D74F478-4B26-2F73-EA27-9DADC90A49BC";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_L_Wrist_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "13364777-4249-8632-1640-6F91DA40D707";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Wrist_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33984,9 +33972,10 @@ createNode parentConstraint -n "SKIN_L_Thumb_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" 3.7539683637114223 -0.17468730122311626 0.15118316432509538 ;
 	setAttr ".rsrr" -type "double3" -1.5902773407317588e-15 1.2821611059649802e-14 -2.385416011097638e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E8EB2F5B-467F-C792-5CB9-AD9FF76E2A89";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Thumb_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "8D74F478-4B26-2F73-EA27-9DADC90A49BC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -33999,7 +33988,7 @@ createNode scaleConstraint -n "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346414 0.052287581699346386 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Thumb_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "E2A9B26E-4764-0C24-33D2-C691BE492B70";
@@ -34024,9 +34013,9 @@ createNode parentConstraint -n "SKIN_L_Thumb_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 2.9155502918333109 -1.4220046892297162 -8.9654490039947632e-05 ;
 	setAttr ".rsrr" -type "double3" 6.361109362927032e-15 3.180554681463516e-15 3.180554681463516e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Thumb_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E4521F34-4AB1-DE3B-D52F-B8AC6CD8FED7";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E8EB2F5B-467F-C792-5CB9-AD9FF76E2A89";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34039,7 +34028,7 @@ createNode scaleConstraint -n "SKIN_L_Thumb_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346393 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346414 0.052287581699346386 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Thumb_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "5A5EEF98-4EDD-37E1-F980-0083EE144863";
@@ -34064,10 +34053,9 @@ createNode parentConstraint -n "SKIN_L_Thumb_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 2.7319835686330123 -2.8269190806895494e-05 -9.2549137562514261e-05 ;
 	setAttr ".rsrr" -type "double3" -9.9392333795734899e-16 5.9635400277440939e-16 3.1805546814635168e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Index_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "66832515-4913-B323-978A-B08773BBD5F7";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_L_Thumb_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E4521F34-4AB1-DE3B-D52F-B8AC6CD8FED7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Thumb_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34080,7 +34068,7 @@ createNode scaleConstraint -n "SKIN_L_Index_Base_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346393 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Index_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "2D9E7D65-40EB-B576-2B69-E79DDC68F329";
@@ -34107,9 +34095,10 @@ createNode parentConstraint -n "SKIN_L_Index_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rsrr" -type "double3" -9.9392333795734899e-17 -7.9513867036587919e-16 
 		1.5902773407317584e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Index_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "D68C5ECF-4DEB-8C4B-4E9D-26BC5BE6DE53";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Index_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "66832515-4913-B323-978A-B08773BBD5F7";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34122,7 +34111,7 @@ createNode scaleConstraint -n "SKIN_L_Index_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Index_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "7338B81F-4527-C240-991E-3CB94EE8D95C";
@@ -34147,9 +34136,9 @@ createNode parentConstraint -n "SKIN_L_Index_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 2.9389541324338353 2.0078347600982482e-05 2.3686742906647851e-05 ;
 	setAttr ".rsrr" -type "double3" 2.981770013872047e-16 2.4848083448933731e-17 -7.9513867036587919e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Index_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FB894CD2-4DE8-5340-A4E3-02A2B2CDD283";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Index_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "D68C5ECF-4DEB-8C4B-4E9D-26BC5BE6DE53";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34162,7 +34151,7 @@ createNode scaleConstraint -n "SKIN_L_Index_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Index_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "9EC9EA64-4AE2-ED04-B476-488A07A5051E";
@@ -34188,9 +34177,9 @@ createNode parentConstraint -n "SKIN_L_Index_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rsrr" -type "double3" -1.9878466759146985e-16 -3.2965698532930321e-20 
 		-1.3054906843214002e-19 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Ring_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "2DACF453-4855-2E7A-5FA7-21B269FF1032";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_Base_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Index_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FB894CD2-4DE8-5340-A4E3-02A2B2CDD283";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Index_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34203,7 +34192,7 @@ createNode scaleConstraint -n "SKIN_L_Ring_Base_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Ring_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "9B473625-4183-8366-A419-9CB99855BDC3";
@@ -34228,9 +34217,9 @@ createNode parentConstraint -n "SKIN_L_Ring_Base_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 7.734706770545472 -0.094453040883145434 1.0521619359955015 ;
 	setAttr ".rsrr" -type "double3" -2.5469285535157066e-14 1.5902773407317588e-15 7.951386703658788e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "4AE27BF6-413E-186D-B929-788AF389A6A8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Ring_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "2DACF453-4855-2E7A-5FA7-21B269FF1032";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_Base_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34243,7 +34232,7 @@ createNode scaleConstraint -n "SKIN_L_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346386 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Ring_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "100DA833-4DF6-A063-65DA-80960D1D82ED";
@@ -34268,9 +34257,9 @@ createNode parentConstraint -n "SKIN_L_Ring_Mid_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 3.5204012706388426 0.052755172084044233 0.0067826607114653825 ;
 	setAttr ".rsrr" -type "double3" 2.7332891793827095e-16 1.5918303459473166e-15 1.739365841425361e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Ring_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "0F2F9591-4B07-BA0A-B552-B5A8BC6D6AEA";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "4AE27BF6-413E-186D-B929-788AF389A6A8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34283,7 +34272,7 @@ createNode scaleConstraint -n "SKIN_L_Ring_End_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346386 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Ring_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "AB730FE8-4CFD-34D0-5872-238867953637";
@@ -34308,10 +34297,9 @@ createNode parentConstraint -n "SKIN_L_Ring_End_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 2.7530879615855923 4.9971864284792389e-05 0.00012762969131685509 ;
 	setAttr ".rsrr" -type "double3" 7.3975163090649438e-42 4.0978863343704734e-20 2.0686101507192146e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Middle_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "AE38B248-4182-1D15-3F9B-EEB64543EAF8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_L_Ring_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "0F2F9591-4B07-BA0A-B552-B5A8BC6D6AEA";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ring_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34324,7 +34312,7 @@ createNode scaleConstraint -n "SKIN_L_Middle_Base_Jnt_scaleConstraint1" -p "Akal
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Middle_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "9799A2E1-4D41-A98A-4F76-219011A84565";
@@ -34350,9 +34338,9 @@ createNode parentConstraint -n "SKIN_L_Middle_Base_Jnt_parentConstraint2" -p "Ak
 	setAttr ".rst" -type "double3" 7.7945768980030437 0.11499719146451071 -0.62293371689072252 ;
 	setAttr ".rsrr" -type "double3" 1.9089540109643334e-14 2.4836305030349374e-31 -1.4908850069360234e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Middle_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "487922A4-4A14-8355-E1C1-5BB9994DA9D4";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_Mid_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_L_Middle_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "AE38B248-4182-1D15-3F9B-EEB64543EAF8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_Base_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -34366,7 +34354,7 @@ createNode scaleConstraint -n "SKIN_L_Middle_Mid_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Middle_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "0D957568-447F-394B-7A3C-B085AC9995B5";
@@ -34392,9 +34380,9 @@ createNode parentConstraint -n "SKIN_L_Middle_Mid_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" 3.2658882504126154 -6.6785110774958412e-10 2.6470082048035692e-05 ;
 	setAttr ".rsrr" -type "double3" -1.1647539116687689e-17 6.3603328603192528e-15 -1.4908850069360232e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Middle_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "25D4B672-40B5-A769-162C-53BA4F66AA2F";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_End_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_L_Middle_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "487922A4-4A14-8355-E1C1-5BB9994DA9D4";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_Mid_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -34408,7 +34396,7 @@ createNode scaleConstraint -n "SKIN_L_Middle_End_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Middle_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "AA27E6A2-4104-5770-C393-F68F6521660B";
@@ -34434,9 +34422,9 @@ createNode parentConstraint -n "SKIN_L_Middle_End_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" 2.3059752037734427 1.8854746013374779e-06 8.4906667773054778e-05 ;
 	setAttr ".rsrr" -type "double3" 3.0332133116374168e-21 1.5308211202244238e-22 3.7135628314345299e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Pinky_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "2E49969D-45EE-41CC-AA68-B49143808DAF";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_Base_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_L_Middle_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "25D4B672-40B5-A769-162C-53BA4F66AA2F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Middle_End_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -34476,9 +34464,10 @@ createNode parentConstraint -n "SKIN_L_Pinky_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" 7.2056985071417188 0.22029702320159572 -2.3587665414369714 ;
 	setAttr ".rsrr" -type "double3" -1.2573130225160461e-14 -3.180554681463516e-15 -7.951386703658788e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "F8B18FC9-4EE9-71DF-6CC8-28B04884618D";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Pinky_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "2E49969D-45EE-41CC-AA68-B49143808DAF";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34491,7 +34480,7 @@ createNode scaleConstraint -n "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Pinky_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "9E713F9F-499B-CF47-3130-9D8D2DC2D0CD";
@@ -34516,9 +34505,9 @@ createNode parentConstraint -n "SKIN_L_Pinky_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 2.4418553726407026 -8.4561487092571497e-06 0.00013044424983377212 ;
 	setAttr ".rsrr" -type "double3" -4.2241741863187335e-16 3.1766721684246207e-15 -1.4908850069360237e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Pinky_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "5FECFBF3-4A87-1403-A8A7-D2AD0BAF474B";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "F8B18FC9-4EE9-71DF-6CC8-28B04884618D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34531,7 +34520,7 @@ createNode scaleConstraint -n "SKIN_L_Pinky_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Pinky_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "D31582EC-45B3-8AAA-3C4D-8C9B8C9A5B62";
@@ -34556,9 +34545,9 @@ createNode parentConstraint -n "SKIN_L_Pinky_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 1.5400226506974235 1.2980601836076744e-05 -0.00017459415925102917 ;
 	setAttr ".rsrr" -type "double3" 4.5498199674561264e-21 -8.7750657709162314e-22 -4.3181593242797498e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Palm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E5948F1A-442C-24A7-2839-5F9C48CAEA2D";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Palm_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Pinky_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "5FECFBF3-4A87-1403-A8A7-D2AD0BAF474B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Pinky_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34571,7 +34560,7 @@ createNode scaleConstraint -n "SKIN_L_Palm_Jnt_scaleConstraint1" -p "Akali_Base_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Palm_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "FEC09943-4A15-831E-99B2-92BBDFC05BA3";
@@ -34596,9 +34585,9 @@ createNode parentConstraint -n "SKIN_L_Palm_Jnt_parentConstraint1" -p "Akali_Bas
 	setAttr ".rst" -type "double3" 3.1791250214260884 -0.024656307393840393 2.4001592269229377e-08 ;
 	setAttr ".rsrr" -type "double3" 3.1740626954470215e-15 -8.5295176938912452e-16 -5.3312069940587115e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Clavicle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "F8359ADC-4AFE-98A2-4D50-40AAC4C41E53";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Clavicle_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Palm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E5948F1A-442C-24A7-2839-5F9C48CAEA2D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Palm_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34636,9 +34625,9 @@ createNode parentConstraint -n "SKIN_R_Clavicle_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 12.934507201353739 4.3874063962787879 -1.2220683750000003 ;
 	setAttr ".rsrr" -type "double3" 9.5416640443905503e-15 6.361109362927032e-15 1.2722218725854067e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Arm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "65C8EEC2-4788-8D22-2CC5-079BC847AB3D";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Arm_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Clavicle_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "F8359ADC-4AFE-98A2-4D50-40AAC4C41E53";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Clavicle_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34651,7 +34640,7 @@ createNode scaleConstraint -n "SKIN_R_Arm_Jnt_scaleConstraint1" -p "Akali_Base_S
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346386 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Arm_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "84B96418-4EDB-D134-983E-3FA951438EC9";
@@ -34676,9 +34665,9 @@ createNode parentConstraint -n "SKIN_R_Arm_Jnt_parentConstraint2" -p "Akali_Base
 	setAttr ".rst" -type "double3" -11.160036471736476 -0.00015483511748470846 2.0237654737798039e-05 ;
 	setAttr ".rsrr" -type "double3" 1.5104690807985634e-26 -3.975693351829396e-15 -4.3536307132410017e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Elbow_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "0E4A00B7-4350-F3B8-C1C8-1FA8C6F7CA9B";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Elbow_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Arm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "65C8EEC2-4788-8D22-2CC5-079BC847AB3D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Arm_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34716,9 +34705,9 @@ createNode parentConstraint -n "SKIN_R_Elbow_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" -19.960120492815179 0.00010692180121907313 0.73932851249999532 ;
 	setAttr ".rsrr" -type "double3" 4.7568153539242571e-15 -2.3768361363594058e-15 -8.6254333213073004e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Wrist_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "F9C72F32-4C19-66AE-3024-8DA382785B8C";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Wrist_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Elbow_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "0E4A00B7-4350-F3B8-C1C8-1FA8C6F7CA9B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Elbow_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34731,7 +34720,7 @@ createNode scaleConstraint -n "SKIN_R_Wrist_Jnt_scaleConstraint1" -p "Akali_Base
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346386 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Wrist_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "A920AA51-4D3F-9304-E0A1-8D8FEC4F82C1";
@@ -34756,10 +34745,9 @@ createNode parentConstraint -n "SKIN_R_Wrist_Jnt_parentConstraint2" -p "Akali_Ba
 	setAttr ".rst" -type "double3" -21.10656780651766 -4.3476196026404068e-05 -0.73932851249886933 ;
 	setAttr ".rsrr" -type "double3" 4.17625829348275e-15 -1.162061887435106e-15 -7.0315861925527248e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Thumb_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "59514AC9-42A5-1D37-89C6-FFBFB6583F54";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_R_Wrist_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "F9C72F32-4C19-66AE-3024-8DA382785B8C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Wrist_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34772,7 +34760,7 @@ createNode scaleConstraint -n "SKIN_R_Thumb_Base_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Thumb_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "03D61D6C-4B39-A606-681D-C7A141AA4603";
@@ -34798,9 +34786,10 @@ createNode parentConstraint -n "SKIN_R_Thumb_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" -3.7539683628824889 0.17468730294890378 -0.15118318291299726 ;
 	setAttr ".rsrr" -type "double3" -1.5902773407317588e-15 1.9182720422576836e-14 -1.5902773407317588e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "D98EB3DA-4139-530D-CC8E-59A0F00875A8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Thumb_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "59514AC9-42A5-1D37-89C6-FFBFB6583F54";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34813,7 +34802,7 @@ createNode scaleConstraint -n "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346386 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Thumb_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "93C94CBA-4632-F957-9F29-E28F91612675";
@@ -34838,9 +34827,9 @@ createNode parentConstraint -n "SKIN_R_Thumb_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -2.9155502905276904 1.4220046919078442 8.9635123615039447e-05 ;
 	setAttr ".rsrr" -type "double3" -4.7708320221952759e-15 3.180554681463516e-15 -1.5902773407317584e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Thumb_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FF169EB2-4E3A-4FF0-6D37-88A12AE4EA44";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "D98EB3DA-4139-530D-CC8E-59A0F00875A8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34853,7 +34842,7 @@ createNode scaleConstraint -n "SKIN_R_Thumb_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346393 0.052287581699346414 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346414 0.052287581699346386 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Thumb_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "52955A60-40F8-4CB8-07DD-F39E170CFDA0";
@@ -34878,10 +34867,9 @@ createNode parentConstraint -n "SKIN_R_Thumb_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -2.7319835686332397 2.8251463241701913e-05 9.2549967696697877e-05 ;
 	setAttr ".rsrr" -type "double3" 7.4544250346801169e-16 1.7393658414253607e-15 -1.4908850069360234e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Index_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "81BE8FA5-47B7-D9CA-CCC3-A497C69A1A87";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_R_Thumb_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FF169EB2-4E3A-4FF0-6D37-88A12AE4EA44";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Thumb_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34894,7 +34882,7 @@ createNode scaleConstraint -n "SKIN_R_Index_Base_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346393 0.052287581699346414 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Index_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "DF8120B5-4392-F6B3-C909-8B84E199D3FC";
@@ -34921,9 +34909,10 @@ createNode parentConstraint -n "SKIN_R_Index_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rsrr" -type "double3" -6.5598940305185051e-15 -7.9513867036587919e-16 
 		1.5902773407317588e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Index_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "4C6BD93B-4BB9-617D-45A3-00BFA8C47640";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Index_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "81BE8FA5-47B7-D9CA-CCC3-A497C69A1A87";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34936,7 +34925,7 @@ createNode scaleConstraint -n "SKIN_R_Index_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346414 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Index_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "18E1F357-42B6-0C59-2150-5BA9C528A92C";
@@ -34961,9 +34950,9 @@ createNode parentConstraint -n "SKIN_R_Index_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -2.9389541324338069 -2.0098105695254276e-05 -2.3677595820004171e-05 ;
 	setAttr ".rsrr" -type "double3" 8.4483483726374669e-16 -1.465554825524467e-33 1.987846675914698e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Index_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "3FA1F3D4-4268-08D7-3B86-38A5E7C11D8C";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Index_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "4C6BD93B-4BB9-617D-45A3-00BFA8C47640";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -34976,7 +34965,7 @@ createNode scaleConstraint -n "SKIN_R_Index_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346407 0.052287581699346414 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346414 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Index_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "B71C1ACA-4704-564F-6B56-8F8FC15C0E31";
@@ -35001,9 +34990,9 @@ createNode parentConstraint -n "SKIN_R_Index_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -2.4567962336383857 -2.236645713971086e-06 -1.8492347034992918e-05 ;
 	setAttr ".rsrr" -type "double3" -3.975693351829396e-16 -1.7055643340529627e-20 -6.1014193356870621e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Ring_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "A62C3CE2-4F6C-5685-6DBA-CBB2D34CE95E";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_Base_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Index_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "3FA1F3D4-4268-08D7-3B86-38A5E7C11D8C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Index_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35016,7 +35005,7 @@ createNode scaleConstraint -n "SKIN_R_Ring_Base_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346407 0.052287581699346414 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Ring_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "6A6891C5-43CE-FB48-A046-36A3D72A1D79";
@@ -35041,9 +35030,9 @@ createNode parentConstraint -n "SKIN_R_Ring_Base_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -7.7347067647766607 0.094453052893584299 -1.0521619773245767 ;
 	setAttr ".rsrr" -type "double3" -1.2722218725854067e-14 -1.987846675914698e-15 7.9513867036587939e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "02AE84E3-4093-D208-20E5-529FA692EB31";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Ring_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "A62C3CE2-4F6C-5685-6DBA-CBB2D34CE95E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_Base_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35056,7 +35045,7 @@ createNode scaleConstraint -n "SKIN_R_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Ring_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "5F2DEDF3-4732-4B58-E571-C88FCBD97C3C";
@@ -35082,9 +35071,9 @@ createNode parentConstraint -n "SKIN_R_Ring_Mid_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rsrr" -type "double3" -2.4848083448933737e-17 -4.7677260117641586e-15 
 		2.4848083448933725e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Ring_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "BAB8953B-484E-5AE8-D230-B5AC2502BD47";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Ring_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "02AE84E3-4093-D208-20E5-529FA692EB31";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35097,7 +35086,7 @@ createNode scaleConstraint -n "SKIN_R_Ring_End_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Ring_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "3592C436-4C7F-A067-1F5F-2096F8017120";
@@ -35122,10 +35111,9 @@ createNode parentConstraint -n "SKIN_R_Ring_End_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" -2.7530879615855071 -4.9990056123050408e-05 -0.00012762353862072473 ;
 	setAttr ".rsrr" -type "double3" -3.975693351829396e-16 -6.3237751729137637e-21 -4.4496830169091276e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Middle_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "AD345974-4632-050C-F85B-408CBE242600";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_Base_JntW0" -dv 1 -min 0 
-		-at "double";
+createNode scaleConstraint -n "SKIN_R_Ring_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "BAB8953B-484E-5AE8-D230-B5AC2502BD47";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ring_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35138,7 +35126,7 @@ createNode scaleConstraint -n "SKIN_R_Middle_Base_Jnt_scaleConstraint1" -p "Akal
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Middle_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "D82D17D1-4E74-D0F6-8CE8-1EA4885C6300";
@@ -35165,9 +35153,9 @@ createNode parentConstraint -n "SKIN_R_Middle_Base_Jnt_parentConstraint2" -p "Ak
 	setAttr ".rsrr" -type "double3" -3.7272125173400562e-17 -1.5902773407317584e-15 
 		-1.7890620083232284e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Middle_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "5970B33B-48AC-085B-584E-A0AE5B4E7F31";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_Mid_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_R_Middle_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "AD345974-4632-050C-F85B-408CBE242600";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_Base_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35181,7 +35169,7 @@ createNode scaleConstraint -n "SKIN_R_Middle_Mid_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346393 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Middle_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "110F64FE-4621-46A1-CAF5-2EB09C3F2B1B";
@@ -35207,9 +35195,9 @@ createNode parentConstraint -n "SKIN_R_Middle_Mid_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" -3.2658882504127007 -2.3599540099894512e-08 -2.6469775200155254e-05 ;
 	setAttr ".rsrr" -type "double3" -3.9912234039849786e-16 6.3610608315140457e-15 -4.9696166897867462e-17 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Middle_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "B7577A29-4DCE-CAA1-85D4-56B7F2037969";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_End_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_R_Middle_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "5970B33B-48AC-085B-584E-A0AE5B4E7F31";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_Mid_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35223,7 +35211,7 @@ createNode scaleConstraint -n "SKIN_R_Middle_End_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346386 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346393 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Middle_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "AFD7F38F-4E2E-B7A9-927A-058C0FA72C11";
@@ -35249,9 +35237,9 @@ createNode parentConstraint -n "SKIN_R_Middle_End_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" -2.3059752037734995 -1.9007651159697048e-06 -8.4906080125790595e-05 ;
 	setAttr ".rsrr" -type "double3" -3.0332133116374168e-21 3.3858471580607809e-22 1.4611965801394278e-20 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Pinky_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "450DB779-494E-A0C0-FECF-90841DFC2CE1";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_Base_JntW0" -dv 1 -min 0 
+createNode scaleConstraint -n "SKIN_R_Middle_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "B7577A29-4DCE-CAA1-85D4-56B7F2037969";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Middle_End_JntW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35265,7 +35253,7 @@ createNode scaleConstraint -n "SKIN_R_Pinky_Base_Jnt_scaleConstraint1" -p "Akali
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346379 0.052287581699346386 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Pinky_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "E0746AF8-48AD-E484-91FB-748195F20980";
@@ -35291,9 +35279,10 @@ createNode parentConstraint -n "SKIN_R_Pinky_Base_Jnt_parentConstraint2" -p "Aka
 	setAttr ".rst" -type "double3" -7.2056985200740655 -0.22029705012695899 2.3587664994154256 ;
 	setAttr ".rsrr" -type "double3" 4.9696166897867462e-17 -1.5902773407317584e-15 -7.9513867036587919e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FFA6FE40-4ED4-9159-B0D5-72B045E50471";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_Mid_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Pinky_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "450DB779-494E-A0C0-FECF-90841DFC2CE1";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_Base_JntW0" -dv 1 -min 0 
+		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35306,7 +35295,7 @@ createNode scaleConstraint -n "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Pinky_Mid_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "542259EB-46E6-32EF-B4D1-F99E7A02B5B9";
@@ -35332,9 +35321,9 @@ createNode parentConstraint -n "SKIN_R_Pinky_Mid_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rsrr" -type "double3" -4.0999337690740637e-16 -1.5530052155583578e-18 
 		-9.9392333795734874e-17 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Pinky_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "6CC28EF6-4156-C90E-6BD2-B4A0E6CA9722";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_End_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FFA6FE40-4ED4-9159-B0D5-72B045E50471";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_Mid_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35347,7 +35336,7 @@ createNode scaleConstraint -n "SKIN_R_Pinky_End_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Pinky_End_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "55E4E62D-41BF-D04E-DB42-C69A156BF6F1";
@@ -35372,9 +35361,9 @@ createNode parentConstraint -n "SKIN_R_Pinky_End_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -1.5399501455563325 -3.0864746101144647e-06 0.00016725863428490584 ;
 	setAttr ".rsrr" -type "double3" -5.3081232953654792e-21 2.1808395609925562e-22 -1.2623116753530167e-19 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Palm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "87FE92AD-437C-4F58-17C3-4181AA7E577A";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Palm_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Pinky_End_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "6CC28EF6-4156-C90E-6BD2-B4A0E6CA9722";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Pinky_End_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35387,7 +35376,7 @@ createNode scaleConstraint -n "SKIN_R_Palm_Jnt_scaleConstraint1" -p "Akali_Base_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
+	setAttr ".o" -type "double3" 0.052287581699346386 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Palm_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "08997044-4C65-2536-3469-4493F2BF5ED2";
@@ -35412,9 +35401,9 @@ createNode parentConstraint -n "SKIN_R_Palm_Jnt_parentConstraint1" -p "Akali_Bas
 	setAttr ".rst" -type "double3" -3.179125021425989 0.024656307393833288 -4.1150399088252243e-08 ;
 	setAttr ".rsrr" -type "double3" 3.1575280951088255e-15 -8.4850613911422759e-16 -5.3034059643726738e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Neck01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "0B288AC2-4AC5-F7CA-59FE-E39528C90859";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck01_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Palm_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "87FE92AD-437C-4F58-17C3-4181AA7E577A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Palm_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35427,7 +35416,7 @@ createNode scaleConstraint -n "SKIN_Neck01_Jnt_scaleConstraint1" -p "Akali_Base_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346393 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Neck01_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "08AE2AA3-4719-9379-43CA-02AA1426B2BD";
@@ -35451,9 +35440,9 @@ createNode parentConstraint -n "SKIN_Neck01_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rst" -type "double3" 16.236775054830787 1.5138924087895695 0.0024588480591773987 ;
 	setAttr ".rsrr" -type "double3" 0 0 -3.1805546814635168e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Neck02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "309E967D-4D2D-3043-FA73-75A442C8A9AB";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck02_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Neck01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "0B288AC2-4AC5-F7CA-59FE-E39528C90859";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck01_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35490,9 +35479,9 @@ createNode parentConstraint -n "SKIN_Neck02_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rst" -type "double3" 3.2065632396502792 7.1054273576010019e-15 -9.9746599868666408e-18 ;
 	setAttr ".rsrr" -type "double3" 0 0 3.9756933518293969e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Neck03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "15D7F510-426B-A47F-1700-8A8647AF7286";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck03_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Neck02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "309E967D-4D2D-3043-FA73-75A442C8A9AB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck02_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35505,7 +35494,7 @@ createNode scaleConstraint -n "SKIN_Neck03_Jnt_scaleConstraint1" -p "Akali_Base_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Neck03_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "3FFD277E-4EA3-6E1E-3253-169D05A42353";
@@ -35530,9 +35519,9 @@ createNode parentConstraint -n "SKIN_Neck03_Jnt_parentConstraint2" -p "Akali_Bas
 	setAttr ".rst" -type "double3" 3.2149152549052644 -3.8635761256955448e-12 1.0993810029003015e-15 ;
 	setAttr ".rsrr" -type "double3" 1.5072719348920124e-07 -1.8668929739530362e-08 -1.9983001164268398e-17 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Head_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FB690941-4C0F-D429-F0B8-35A8823FE177";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Head_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_Neck03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "15D7F510-426B-A47F-1700-8A8647AF7286";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Neck03_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -35545,7 +35534,7 @@ createNode scaleConstraint -n "SKIN_Head_Jnt_scaleConstraint1" -p "Akali_Base_SK
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Head_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "94F58254-45B2-2289-D094-D383D0D0DC6E";
@@ -35568,6 +35557,40 @@ createNode parentConstraint -n "SKIN_Head_Jnt_parentConstraint2" -p "Akali_Base_
 	setAttr ".lr" -type "double3" 0 0 -1.4312496066585827e-14 ;
 	setAttr ".rst" -type "double3" 2.5862361813705377 -1.5987211554602254e-14 -1.8388068845354155e-15 ;
 	setAttr ".rsrr" -type "double3" 0 0 1.5902773407317584e-15 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_Head_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FB690941-4C0F-D429-F0B8-35A8823FE177";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Head_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346407 0.052287581699346407 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_Main_Hair01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "554FA4A6-476A-3AB1-FEFC-8A945BA8C3CD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair01_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Main_Hair01_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "4F541251-4519-3C87-5AA3-3DABEF546357";
@@ -35593,9 +35616,9 @@ createNode parentConstraint -n "SKIN_Main_Hair01_Jnt_parentConstraint1" -p "Akal
 	setAttr ".rst" -type "double3" 13.508905511817972 -8.7012682963875552 -0.29988366467632133 ;
 	setAttr ".rsrr" -type "double3" 7.963810745383258e-15 2.9196498052497126e-16 2.4387035025565043e-18 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Main_Hair01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "554FA4A6-476A-3AB1-FEFC-8A945BA8C3CD";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair01_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_Main_Hair02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "03C1D74F-40E6-D4AD-8A98-768EEC89CAFB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair02_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35634,9 +35657,9 @@ createNode parentConstraint -n "SKIN_Main_Hair02_Jnt_parentConstraint1" -p "Akal
 	setAttr ".rst" -type "double3" 13.902083547712969 0.056362855928966837 1.7013638031973226 ;
 	setAttr ".rsrr" -type "double3" 1.5902773407317584e-14 8.9453100416161498e-16 -6.410805529824901e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Main_Hair02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "03C1D74F-40E6-D4AD-8A98-768EEC89CAFB";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair02_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_Main_Hair03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "CFA5EDEA-4B4D-B7DE-0BCD-9D9081289E50";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair03_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35675,40 +35698,6 @@ createNode parentConstraint -n "SKIN_Main_Hair03_Jnt_parentConstraint1" -p "Akal
 	setAttr ".rst" -type "double3" 12.987273371662301 -0.86398217289738 6.5839426083685213 ;
 	setAttr ".rsrr" -type "double3" 1.3517357396219947e-14 2.3854160110976376e-15 -7.951386703658789e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Main_Hair03_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "CFA5EDEA-4B4D-B7DE-0BCD-9D9081289E50";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Main_Hair03_CtrlW0" -dv 1 -min 
-		0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Cheek_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "460D3364-4DC7-FF9F-4E94-F4A623614D94";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Cheek_CtrlW0" -dv 1 -min 0 
-		-at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Cheek_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "88D3D008-4EB7-CFDE-951C-A99CC745D785";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Cheek_CtrlW0" -dv 1 -min 0 
@@ -35731,6 +35720,40 @@ createNode parentConstraint -n "SKIN_L_Cheek_Jnt_parentConstraint1" -p "Akali_Ba
 	setAttr ".lr" -type "double3" 3.116943587834243e-13 -3.6894434304976826e-13 1.1768052321414913e-13 ;
 	setAttr ".rst" -type "double3" 0.97893809796076425 5.4540555009837615 4.6632426769316053 ;
 	setAttr ".rsrr" -type "double3" 2.8624992133171654e-14 1.9083328088781094e-14 1.9083328088781107e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_L_Cheek_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "460D3364-4DC7-FF9F-4E94-F4A623614D94";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Cheek_CtrlW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_L_Corner_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "A7047C8C-442F-BE47-80CD-79B7C71E65F8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Corner_Lip_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Corner_Lip_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "1249B0B1-4878-F42E-DF93-D8B2892D38A2";
@@ -35755,9 +35778,9 @@ createNode parentConstraint -n "SKIN_L_Corner_Lip_Jnt_parentConstraint1" -p "Aka
 	setAttr ".rst" -type "double3" -0.28189981326383418 7.5595131666126552 1.5822874306056689 ;
 	setAttr ".rsrr" -type "double3" 1.2722218725854067e-14 1.2722218725854065e-14 1.2722218725854067e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Corner_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "A7047C8C-442F-BE47-80CD-79B7C71E65F8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Corner_Lip_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_R_Corner_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "6DAA1702-4468-92B3-F49F-CC8852191047";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Corner_Lip_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35794,40 +35817,6 @@ createNode parentConstraint -n "SKIN_R_Corner_Lip_Jnt_parentConstraint1" -p "Aka
 	setAttr ".lr" -type "double3" 1.9083328088781101e-14 -6.361109362927032e-15 -6.3611093629270351e-15 ;
 	setAttr ".rst" -type "double3" -0.28052017092534243 7.5594606204516452 -1.5826241628618254 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Corner_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "6DAA1702-4468-92B3-F49F-CC8852191047";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Corner_Lip_CtrlW0" -dv 1 -min 
-		0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Cheek_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "86A2AEC4-47CD-67B6-5681-EDAACBC81A19";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Cheek_CtrlW0" -dv 1 -min 0 
-		-at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Cheek_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "250035C8-4F03-FF9B-4F1A-A5A55E3D1615";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Cheek_CtrlW0" -dv 1 -min 0 
@@ -35851,6 +35840,40 @@ createNode parentConstraint -n "SKIN_R_Cheek_Jnt_parentConstraint1" -p "Akali_Ba
 	setAttr ".lr" -type "double3" 3.0215269473903369e-13 -3.6735406570903655e-13 1.2245135523634443e-13 ;
 	setAttr ".rst" -type "double3" 0.9830427351655544 5.4540401381484287 -4.6624655571376907 ;
 	setAttr ".rsrr" -type "double3" 1.5902773407317584e-14 3.1805546814635152e-15 1.5902773407317584e-14 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_R_Cheek_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "86A2AEC4-47CD-67B6-5681-EDAACBC81A19";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Cheek_CtrlW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_Upper_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "A78E025D-4BA4-5FF4-8AD6-489212BD9D10";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Upper_Lip_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Upper_Lip_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "4280F5E7-4C7B-3083-5B81-029220B82F15";
@@ -35877,9 +35900,9 @@ createNode parentConstraint -n "SKIN_Upper_Lip_Jnt_parentConstraint1" -p "Akali_
 	setAttr ".rsrr" -type "double3" -6.3611093629270335e-15 -6.3611093629270327e-15 
 		9.5416640443905503e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Upper_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "A78E025D-4BA4-5FF4-8AD6-489212BD9D10";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Upper_Lip_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_L_Brow_Outer_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "2DD7918A-4ABC-2FA4-CD9D-E69B4F699B26";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Outer_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35918,9 +35941,9 @@ createNode parentConstraint -n "SKIN_L_Brow_Outer_Jnt_parentConstraint1" -p "Aka
 	setAttr ".rst" -type "double3" 0.78690397466590412 0.73244813096942529 2.7760396629180768 ;
 	setAttr ".rsrr" -type "double3" 1.7990012417028022e-14 1.2125864723079659e-14 1.272221872585407e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Brow_Outer_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "2DD7918A-4ABC-2FA4-CD9D-E69B4F699B26";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Outer_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_L_Brow_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "D7D19FF8-4776-CE2E-4953-32919240B0CB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Mid_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35955,9 +35978,9 @@ createNode parentConstraint -n "SKIN_L_Brow_Mid_Jnt_parentConstraint1" -p "Akali
 		-3.5527136788005009e-15 ;
 	setAttr ".rst" -type "double3" 0.00039949064665734113 -0.30980973549363533 -5.5682943340684687e-05 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Brow_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "D7D19FF8-4776-CE2E-4953-32919240B0CB";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Mid_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_L_Brow_Inner_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "2BCB0BA7-4EC3-73B4-8B98-66A69E50C1CF";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Inner_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -35995,9 +36018,9 @@ createNode parentConstraint -n "SKIN_L_Brow_Inner_Jnt_parentConstraint1" -p "Aka
 	setAttr ".rst" -type "double3" 0.27461625778801135 0.18679094291758602 -1.8278558096858966 ;
 	setAttr ".rsrr" -type "double3" 9.5913602112884178e-15 -3.3276715450143774e-32 3.975693351829396e-16 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Brow_Inner_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "2BCB0BA7-4EC3-73B4-8B98-66A69E50C1CF";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_L_Brow_Inner_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_R_Brow_Outer_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "ED5A3153-4E7F-C32E-D326-9DB9F7CB458E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Outer_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -36035,9 +36058,9 @@ createNode parentConstraint -n "SKIN_R_Brow_Outer_Jnt_parentConstraint1" -p "Aka
 	setAttr ".rst" -type "double3" -0.78649165154999423 -0.7324370449524924 -2.7761007893253051 ;
 	setAttr ".rsrr" -type "double3" -1.033680271475643e-14 -6.7586786981099719e-15 1.2722218725854067e-14 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Brow_Outer_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "ED5A3153-4E7F-C32E-D326-9DB9F7CB458E";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Outer_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_R_Brow_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "C18AC775-449F-D8CB-500D-189CAE446139";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Mid_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -36072,9 +36095,9 @@ createNode parentConstraint -n "SKIN_R_Brow_Mid_Jnt_parentConstraint1" -p "Akali
 		3.5527136788005009e-15 ;
 	setAttr ".rst" -type "double3" -5.6843418860808015e-14 0.30981519404153524 -3.5527136788005009e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Brow_Mid_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "C18AC775-449F-D8CB-500D-189CAE446139";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Mid_CtrlW0" -dv 1 -min 
+createNode scaleConstraint -n "SKIN_R_Brow_Inner_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "31B59D43-4E59-14E9-F59F-DCB61DC49C0D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Inner_CtrlW0" -dv 1 -min 
 		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -36113,40 +36136,6 @@ createNode parentConstraint -n "SKIN_R_Brow_Inner_Jnt_parentConstraint1" -p "Aka
 	setAttr ".rst" -type "double3" -0.27441252474892508 -0.18673713313441276 1.8278504225734054 ;
 	setAttr ".rsrr" -type "double3" -1.9207568506025768e-14 1.6697912077683458e-14 -7.5538173684758535e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Brow_Inner_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "31B59D43-4E59-14E9-F59F-DCB61DC49C0D";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_R_Brow_Inner_CtrlW0" -dv 1 -min 
-		0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Ear_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "34A72E27-4402-BD87-797A-DE962B56B6AB";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ear_Base_JntW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Ear_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "C024EF98-4A47-019F-B943-69B33E7001F5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ear_Base_JntW0" -dv 1 -min 0 -at "double";
@@ -36171,9 +36160,9 @@ createNode parentConstraint -n "SKIN_L_Ear_Base_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rsrr" -type "double3" -1.5876556119708537e-26 -9.5416640443905503e-15 
 		1.9067107259905637e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Earing_01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "EDA87E2D-419F-ED76-6CEF-5A91B5180288";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Earing_01_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Ear_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "34A72E27-4402-BD87-797A-DE962B56B6AB";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Ear_Base_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36186,7 +36175,7 @@ createNode scaleConstraint -n "SKIN_L_Earing_01_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346414 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Earing_01_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "FA0B8624-4C62-3376-CD7A-5B9581CB316F";
@@ -36211,9 +36200,9 @@ createNode parentConstraint -n "SKIN_L_Earing_01_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 0.14977533785488362 1.7985816506616459 -0.40340362500000015 ;
 	setAttr ".rsrr" -type "double3" 4.7708320221952744e-15 5.9635400277440928e-15 4.7708320221952744e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Earing_02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "300A1BD1-4712-8DCE-0093-B493FD74109C";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Earing_02_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Earing_01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "EDA87E2D-419F-ED76-6CEF-5A91B5180288";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Earing_01_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36251,9 +36240,9 @@ createNode parentConstraint -n "SKIN_L_Earing_02_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -0.15350934683274176 2.0643407432017113 -0.091073249999999106 ;
 	setAttr ".rsrr" -type "double3" 6.4296153515205903e-20 -1.3616603081168312e-14 1.9016218385002222e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Ear_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "04674646-4AD5-A047-D380-9792A95B2739";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ear_Base_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Earing_02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "300A1BD1-4712-8DCE-0093-B493FD74109C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Earing_02_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36266,7 +36255,7 @@ createNode scaleConstraint -n "SKIN_R_Ear_Base_Jnt_scaleConstraint1" -p "Akali_B
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346407 0.052287581699346414 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Ear_Base_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "31E3CC8A-4E65-671A-0E81-6A98D6567256";
@@ -36291,9 +36280,9 @@ createNode parentConstraint -n "SKIN_R_Ear_Base_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 3.5126402069440132 0.64629337098040773 -5.9176332496432318 ;
 	setAttr ".rsrr" -type "double3" -3.1805546814635168e-15 5.2674674979670993e-27 1.8978051728824662e-10 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Earing_01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "97503E47-433C-C9A8-DD19-908BBDEFBD31";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Earing_01_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Ear_Base_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "04674646-4AD5-A047-D380-9792A95B2739";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Ear_Base_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36306,7 +36295,7 @@ createNode scaleConstraint -n "SKIN_R_Earing_01_Jnt_scaleConstraint1" -p "Akali_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_R_Earing_01_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "D5590256-4654-5B11-A4CF-60968CC21E35";
@@ -36331,9 +36320,9 @@ createNode parentConstraint -n "SKIN_R_Earing_01_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" -0.14977072013067172 -1.7986411994243099 0.40338545199484077 ;
 	setAttr ".rsrr" -type "double3" -1.590277340731758e-15 5.1684013573782151e-15 7.1562480332929135e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Earing_02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "B8FA84BF-4736-C6EB-8223-DCB1E823A075";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Earing_02_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Earing_01_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "97503E47-433C-C9A8-DD19-908BBDEFBD31";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Earing_01_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36371,6 +36360,40 @@ createNode parentConstraint -n "SKIN_R_Earing_02_Jnt_parentConstraint2" -p "Akal
 	setAttr ".rst" -type "double3" 0.1535210966548668 -2.0643406896355714 0.091056176461278504 ;
 	setAttr ".rsrr" -type "double3" 4.5649511590238848e-20 1.1192578884849319e-14 1.9021625327960712e-10 ;
 	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_R_Earing_02_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "B8FA84BF-4736-C6EB-8223-DCB1E823A075";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Earing_02_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".o" -type "double3" 0.052287581699346407 0.052287581699346393 0.052287581699346407 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKN_Top_Teeth_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "42BC650D-4ECB-88EB-BBBC-41B1E9275AE9";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Top_Teeth_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".o" -type "double3" 0.0027339911999658246 0.0027339911999658246 0.002733991199965825 ;
+	setAttr -k on ".w0";
 createNode parentConstraint -n "SKN_Top_Teeth_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "7102CDB9-4501-9DAB-B56D-1F905B65A3FC";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Top_Teeth_JntW0" -dv 1 -min 0 -at "double";
@@ -36394,9 +36417,9 @@ createNode parentConstraint -n "SKN_Top_Teeth_Jnt_parentConstraint2" -p "Akali_B
 	setAttr ".rst" -type "double3" 0.50999252138856832 6.0619294313953009 -0.0011730898128402903 ;
 	setAttr ".rsrr" -type "double3" 1.9069525874066464e-14 -1.5151978984487074e-07 1.0438354645180853e-08 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKN_Top_Teeth_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "42BC650D-4ECB-88EB-BBBC-41B1E9275AE9";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Top_Teeth_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKN_Bot_Teeth_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FEA0565B-46BE-1A45-4EB3-C69CFA9AC0D2";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Bot_Teeth_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36409,7 +36432,7 @@ createNode scaleConstraint -n "SKN_Top_Teeth_Jnt_scaleConstraint1" -p "Akali_Bas
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.0027339911999658246 0.0027339911999658246 0.002733991199965825 ;
+	setAttr ".o" -type "double3" 0.002733991199965825 0.0027339911999658259 0.0027339911999658259 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "SKN_Bot_Teeth_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "1F74E6C0-4A86-38E7-8642-F7B53106DBCA";
@@ -36434,40 +36457,6 @@ createNode parentConstraint -n "SKN_Bot_Teeth_Jnt_parentConstraint2" -p "Akali_B
 	setAttr ".rst" -type "double3" 0.9161984416986968 5.1841223674275341 -0.0025199835807981213 ;
 	setAttr ".rsrr" -type "double3" 6.3382807786819538e-15 -1.5088617564400298e-07 1.7337327610290197e-08 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKN_Bot_Teeth_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FEA0565B-46BE-1A45-4EB3-C69CFA9AC0D2";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Bot_Teeth_JntW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.002733991199965825 0.0027339911999658259 0.0027339911999658259 ;
-	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_L_Eye_Ball_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "898A4C9B-4156-BD71-16AE-9E8985D0B01F";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Eye_Ball_JntW0" -dv 1 -min 0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
-	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_L_Eye_Ball_Jnt_parentConstraint2" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "60E376D1-4527-3B2E-3A52-059562CFF5B9";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Eye_Ball_JntW0" -dv 1 -min 0 -at "double";
@@ -36491,9 +36480,9 @@ createNode parentConstraint -n "SKIN_L_Eye_Ball_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 5.5167156967986841 5.8951646241560827 2.6952871553990105 ;
 	setAttr ".rsrr" -type "double3" -1.5902775317479335e-15 1.5203773283794435e-07 -360.00000000000023 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_R_Eye_Ball_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "FDC51CA9-456D-88F5-5A69-E291DD487A3A";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Eye_Ball_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_L_Eye_Ball_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "898A4C9B-4156-BD71-16AE-9E8985D0B01F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "L_Eye_Ball_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36531,9 +36520,9 @@ createNode parentConstraint -n "SKIN_R_Eye_Ball_Jnt_parentConstraint2" -p "Akali
 	setAttr ".rst" -type "double3" 5.5190324450289836 5.8951316485353011 -2.6933251756243455 ;
 	setAttr ".rsrr" -type "double3" 9.2347405176341996e-12 -1.5203772011572563e-07 -3.6775286029056894e-15 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Jaw_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "E2195C4C-4E6A-E043-C800-CF91A2D83612";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Jaw_JntW0" -dv 1 -min 0 -at "double";
+createNode scaleConstraint -n "SKIN_R_Eye_Ball_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "FDC51CA9-456D-88F5-5A69-E291DD487A3A";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "R_Eye_Ball_JntW0" -dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -36570,6 +36559,40 @@ createNode parentConstraint -n "SKIN_Jaw_Jnt_parentConstraint2" -p "Akali_Base_S
 	setAttr ".rst" -type "double3" 1.9909447827616589 1.4157775658571148 0.00084731121438402085 ;
 	setAttr ".rsrr" -type "double3" 0 0 -6.3611093629270335e-15 ;
 	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_Jaw_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "E2195C4C-4E6A-E043-C800-CF91A2D83612";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Jaw_JntW0" -dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".o" -type "double3" 0.052287581699346393 0.052287581699346393 0.052287581699346407 ;
+	setAttr -k on ".w0";
+createNode scaleConstraint -n "SKIN_Lower_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
+	rename -uid "20E59E9C-4A73-D8CA-85AB-D7B309A9CC07";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Lower_Lip_CtrlW0" -dv 1 -min 
+		0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode parentConstraint -n "SKIN_Lower_Lip_Jnt_parentConstraint1" -p "Akali_Base_SKINRNfosterParent2";
 	rename -uid "806780F8-4F1D-E7BD-230E-62A8149464A9";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Lower_Lip_CtrlW0" -dv 1 -min 
@@ -36594,39 +36617,22 @@ createNode parentConstraint -n "SKIN_Lower_Lip_Jnt_parentConstraint1" -p "Akali_
 	setAttr ".rst" -type "double3" 2.1306450670881389 7.032095869151533 -0.00264701076697689 ;
 	setAttr ".rsrr" -type "double3" -3.1805546814635168e-15 0 0 ;
 	setAttr -k on ".w0";
-createNode scaleConstraint -n "SKIN_Lower_Lip_Jnt_scaleConstraint1" -p "Akali_Base_SKINRNfosterParent2";
-	rename -uid "20E59E9C-4A73-D8CA-85AB-D7B309A9CC07";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "SKIN_Lower_Lip_CtrlW0" -dv 1 -min 
-		0 -at "double";
-	setAttr -k on ".nds";
-	setAttr -k off ".v";
-	setAttr -k off ".tx";
-	setAttr -k off ".ty";
-	setAttr -k off ".tz";
-	setAttr -k off ".rx";
-	setAttr -k off ".ry";
-	setAttr -k off ".rz";
-	setAttr -k off ".sx";
-	setAttr -k off ".sy";
-	setAttr -k off ".sz";
-	setAttr ".erp" yes;
-	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "1283B3DA-4095-259A-AB7B-25A7EA59ADA7";
-	setAttr -s 11 ".lnk";
-	setAttr -s 11 ".slnk";
+	rename -uid "099261EC-454F-056C-B1E6-44BC493CA6F4";
+	setAttr -s 13 ".lnk";
+	setAttr -s 13 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "C4F79320-46F6-199F-5DBA-8FB250BBEB31";
+	rename -uid "BA50E9DF-4D0A-3659-7D18-13AE1CD542BA";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "88543222-4364-0347-2B2D-AE9D31B0C119";
+	rename -uid "BEE8B92A-4ABD-636B-2C8E-BB98571EE9B7";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "C70ED596-4BF8-A3C1-E78C-418EF0A059DD";
+	rename -uid "9046CB59-4D35-4C7F-427C-F19AC1B0276F";
 	setAttr ".cdl" 4;
 	setAttr -s 4 ".dli[1:3]"  4 2 3;
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B541F2CC-45F0-E31A-1629-3DADC9ABD7F7";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "6619C52B-4DC1-366D-8426-A7AA172C48B3";
+	rename -uid "202E5CBB-4F19-C861-8C69-DD838F010D86";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2F5377BA-4C1C-EF9E-C740-788641551DBE";
 	setAttr ".g" yes;
@@ -36640,13 +36646,13 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -docTag \"RADRENDER\" \n            -editorChanged \"updateModelPanelBar\" \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n"
 		+ "            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n"
 		+ "            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n"
-		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -docTag \"RADRENDER\" \n            -editorChanged \"updateModelPanelBar\" \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n"
-		+ "            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n"
+		+ "            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -docTag \"RADRENDER\" \n            -editorChanged \"updateModelPanelBar\" \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n"
+		+ "            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n"
 		+ "            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n"
-		+ "            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1921\n            -height 1048\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -docTag \"RADRENDER\" \n            -editorChanged \"updateModelPanelBar\" \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
+		+ "            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 0\n            -height 1358\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -docTag \"RADRENDER\" \n            -editorChanged \"updateModelPanelBar\" \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 1\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n"
 		+ "            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n"
-		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1475\n            -height 1048\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2977\n            -height 1593\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
 		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner2\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner2\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAnimatedShapes 1\n            -showDagOnly 0\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n"
 		+ "            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n"
 		+ "            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -selectCommand \"<function selCom at 0x7f29c5c04aa0>\" \n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n"
@@ -36662,22 +36668,22 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n"
 		+ "                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -image \"D:/Puppeteer/Maya/2009/scripts/MYAM_quickSelecter_components/toolSettings/projectSetting/Puppeteer/KUTARO/KUTARO.front.sgi\" \n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif ($nodeEditorPanelVisible || $nodeEditorWorkspaceControlOpen) {\n\t\tif (\"\" == $panelName) {\n\t\t\tif ($useSceneConfig) {\n\t\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n"
-		+ "                -allNodes 0\n                -autoSizeNodes 0\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n"
-		+ "                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 0\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n"
-		+ "                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n"
-		+ "                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererOverrideName \"stereoOverrideVP2\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n"
-		+ "                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n"
-		+ "                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n"
-		+ "            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n"
-		+ "            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
-		+ "\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -docTag \\\"RADRENDER\\\" \\n    -editorChanged \\\"updateModelPanelBar\\\" \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1921\\n    -height 1048\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -docTag \\\"RADRENDER\\\" \\n    -editorChanged \\\"updateModelPanelBar\\\" \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1921\\n    -height 1048\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "                -allNodes 0\n                -autoSizeNodes 0\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n"
+		+ "                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 0\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n"
+		+ "                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -editorChanged \"updateModelPanelBar\" \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"smoothShaded\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 0\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n"
+		+ "                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -rendererOverrideName \"stereoOverrideVP2\" \n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n"
+		+ "                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n"
+		+ "                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n"
+		+ "            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n"
+		+ "            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -docTag \\\"RADRENDER\\\" \\n    -editorChanged \\\"updateModelPanelBar\\\" \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2977\\n    -height 1593\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -docTag \\\"RADRENDER\\\" \\n    -editorChanged \\\"updateModelPanelBar\\\" \\n    -camera \\\"persp\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 1\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2977\\n    -height 1593\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"1 0.000000 0.000000 -1.000000 0.000000 1.000000 0.000000\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -39258,461 +39264,461 @@ createNode reference -n "Akali_Base_SKINRN";
 		"-s -r "
 		0 "|Akali_Base_SKIN:Main_Hair_Group" "|Akali_Rig|Meshes" "-s -r "
 		0 "|Akali_Base_SKIN:Main_Body_Group" "|Akali_Rig|Meshes" "-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Lower_Lip_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt|Akali_Base_SKIN:SKIN_Lower_Lip_Jnt" 
-		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Lower_Lip_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt|Akali_Base_SKIN:SKIN_Lower_Lip_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Jaw_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Lower_Lip_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt|Akali_Base_SKIN:SKIN_Lower_Lip_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Jaw_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Eye_Ball_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Eye_Ball_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Jaw_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Jaw_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Eye_Ball_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Eye_Ball_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Eye_Ball_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Eye_Ball_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Eye_Ball_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Eye_Ball_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Eye_Ball_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Eye_Ball_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKN_Bot_Teeth_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_PV_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Eye_Ball_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Eye_Ball_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKN_Bot_Teeth_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_PV_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKN_Top_Teeth_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Top_Teeth_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKN_Bot_Teeth_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_PV_Jnt|Akali_Base_SKIN:SKN_Bot_Teeth_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKN_Top_Teeth_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Top_Teeth_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_02_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_02_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKN_Top_Teeth_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKN_Top_Teeth_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_02_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_02_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_01_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_01_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_02_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_02_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_01_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_01_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ear_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Earing_01_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_R_Earing_01_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ear_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_02_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_02_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ear_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Ear_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_02_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_02_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_01_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_01_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_02_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_02_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_01_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_01_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ear_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Earing_01_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt|Akali_Base_SKIN:SKIN_L_Earing_01_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ear_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Inner_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Inner_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ear_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Ear_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Inner_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Inner_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Mid_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Inner_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Inner_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Mid_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Outer_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Outer_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Mid_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Outer_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Outer_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Inner_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Inner_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Brow_Outer_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Brow__Jnt|Akali_Base_SKIN:SKIN_R_Brow_Outer_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Inner_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Inner_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Mid_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Inner_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Inner_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Mid_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Outer_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Outer_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Mid_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Outer_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Outer_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Upper_Lip_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Upper_Lip_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Brow_Outer_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Brow__Jnt|Akali_Base_SKIN:SKIN_L_Brow_Outer_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Upper_Lip_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Upper_Lip_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Cheek_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Cheek_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Upper_Lip_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Upper_Lip_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Cheek_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Cheek_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Corner_Lip_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Corner_Lip_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Cheek_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Cheek_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Corner_Lip_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Corner_Lip_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Corner_Lip_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Corner_Lip_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Corner_Lip_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_R_Corner_Lip_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Corner_Lip_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Corner_Lip_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Cheek_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Cheek_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Corner_Lip_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Corner_Lip_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Cheek_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Cheek_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair03_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt|Akali_Base_SKIN:SKIN_Main_Hair03_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Cheek_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_L_Cheek_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair03_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt|Akali_Base_SKIN:SKIN_Main_Hair03_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair02_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair03_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt|Akali_Base_SKIN:SKIN_Main_Hair03_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair02_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair01_Jnt_scaleConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair02_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt|Akali_Base_SKIN:SKIN_Main_Hair02_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair01_Jnt_parentConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Head_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Main_Hair01_Jnt_scaleConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt|Akali_Base_SKIN:SKIN_Main_Hair01_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Head_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck03_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Head_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt|Akali_Base_SKIN:SKIN_Head_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck03_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck02_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck03_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt|Akali_Base_SKIN:SKIN_Neck03_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck02_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck01_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck02_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt|Akali_Base_SKIN:SKIN_Neck02_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck01_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Palm_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Palm_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Neck01_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_Neck01_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Palm_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Palm_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Palm_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Palm_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Middle_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Pinky_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Pinky_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Middle_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Middle_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Ring_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Middle_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Middle_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Ring_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Ring_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Index_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ring_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Ring_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Index_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Index_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt|Akali_Base_SKIN:SKIN_R_Index_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Index_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Index_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Wrist_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Thumb_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt|Akali_Base_SKIN:SKIN_R_Thumb_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Wrist_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Elbow_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Wrist_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt|Akali_Base_SKIN:SKIN_R_Wrist_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Elbow_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Arm_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Elbow_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt|Akali_Base_SKIN:SKIN_R_Elbow_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Arm_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Clavicle_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Arm_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt|Akali_Base_SKIN:SKIN_R_Arm_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Clavicle_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Palm_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Palm_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Clavicle_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_R_Clavicle_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Palm_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Palm_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Palm_Jnt_parentConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Palm_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Middle_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Pinky_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Pinky_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Middle_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Middle_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Ring_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Middle_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Middle_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Ring_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Ring_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Index_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ring_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Ring_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Index_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Index_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt|Akali_Base_SKIN:SKIN_L_Index_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_End_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Index_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Index_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Mid_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_End_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Mid_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Base_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Mid_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Mid_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Base_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Wrist_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Thumb_Base_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt|Akali_Base_SKIN:SKIN_L_Thumb_Base_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Wrist_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Elbow_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Wrist_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt|Akali_Base_SKIN:SKIN_L_Wrist_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Elbow_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Arm_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Elbow_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt|Akali_Base_SKIN:SKIN_L_Elbow_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Arm_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Clavicle_Jnt_parentConstraint2" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Arm_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt|Akali_Base_SKIN:SKIN_L_Arm_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Clavicle_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine05_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Clavicle_Jnt_parentConstraint2" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt|Akali_Base_SKIN:SKIN_L_Clavicle_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine05_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine04_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine05_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt|Akali_Base_SKIN:SKIN_Spine05_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine04_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine03_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine04_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt|Akali_Base_SKIN:SKIN_Spine04_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine03_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine02_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine03_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt|Akali_Base_SKIN:SKIN_Spine03_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine02_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine01_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine02_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt|Akali_Base_SKIN:SKIN_Spine02_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine01_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_End_Jnt_parentConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt|Akali_Base_SKIN:SKIN_R_Foot_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Spine01_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Spine01_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt|Akali_Base_SKIN:SKIN_R_Foot_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_End_Jnt_parentConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt|Akali_Base_SKIN:SKIN_R_Foot_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ankle_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Foot_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt|Akali_Base_SKIN:SKIN_R_Foot_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ankle_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Knee_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Ankle_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt|Akali_Base_SKIN:SKIN_R_Ankle_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Knee_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Leg_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Knee_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt|Akali_Base_SKIN:SKIN_R_Knee_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Leg_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_End_Jnt_parentConstraint1" 
-		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt|Akali_Base_SKIN:SKIN_L_Foot_End_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_R_Leg_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_R_Leg_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_End_Jnt_scaleConstraint1" 
 		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt|Akali_Base_SKIN:SKIN_L_Foot_End_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_End_Jnt_parentConstraint1" 
+		"|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt|Akali_Base_SKIN:SKIN_L_Foot_End_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ankle_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Foot_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt|Akali_Base_SKIN:SKIN_L_Foot_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ankle_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Knee_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Ankle_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt|Akali_Base_SKIN:SKIN_L_Ankle_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Knee_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Leg_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Knee_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt|Akali_Base_SKIN:SKIN_L_Knee_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Leg_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Hip_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_L_Leg_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt|Akali_Base_SKIN:SKIN_L_Leg_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Hip_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt" 
 		"-s -r "
-		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Root_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt" 
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Hip_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt|Akali_Base_SKIN:SKIN_Hip_Jnt" 
 		"-s -r "
 		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Root_Jnt_scaleConstraint1" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt" 
+		"-s -r "
+		0 "|Akali_Base_SKINRNfosterParent2|SKIN_Root_Jnt_parentConstraint2" "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt" 
 		"-s -r "
 		2 "|Akali_Rig|Controls|UE4_Scale_Fix_Grp|World_FK_Ctrl|World02_FK_Ctrl|transform1|Akali_Base_SKIN:SKIN_Root_Jnt" 
 		"visibility" " 0"
@@ -42935,19 +42941,19 @@ createNode reference -n "Akali_Base_SKINRN";
 		"Akali_Base_SKINRN.placeHolderList[1579]" ""
 		5 4 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group.visibility" 
 		"Akali_Base_SKINRN.placeHolderList[1580]" ""
-		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group.message" 
-		"Akali_Base_SKINRN.placeHolderList[1581]" ""
 		5 4 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Jacket_Mesh.visibility" 
-		"Akali_Base_SKINRN.placeHolderList[1582]" ""
-		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Jacket_Mesh.message" 
-		"Akali_Base_SKINRN.placeHolderList[1583]" ""
+		"Akali_Base_SKINRN.placeHolderList[1581]" ""
 		5 4 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Jacket_Strip1_Mesh.visibility" 
-		"Akali_Base_SKINRN.placeHolderList[1584]" ""
-		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Jacket_Strip1_Mesh.message" 
-		"Akali_Base_SKINRN.placeHolderList[1585]" ""
+		"Akali_Base_SKINRN.placeHolderList[1582]" ""
 		5 4 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Zipper_Mesh.visibility" 
+		"Akali_Base_SKINRN.placeHolderList[1583]" ""
+		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Tiger_Mask_Mesh.message" 
+		"Akali_Base_SKINRN.placeHolderList[1584]" ""
+		5 4 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Tiger_Mask_Mesh.visibility" 
+		"Akali_Base_SKINRN.placeHolderList[1585]" ""
+		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Tiger_Mask_Mesh|Akali_Base_SKIN:Tiger_Mask_MeshShape.message" 
 		"Akali_Base_SKINRN.placeHolderList[1586]" ""
-		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Zipper_Mesh.message" 
+		5 3 "Akali_Base_SKINRN" "|Akali_Rig|Meshes|Akali_Base_SKIN:Main_Body_Group|Akali_Base_SKIN:Tiger_Mask_Mesh|Akali_Base_SKIN:Tiger_Mask_MeshShapeOrig.message" 
 		"Akali_Base_SKINRN.placeHolderList[1587]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -43089,165 +43095,164 @@ createNode unitConversion -n "unitConversion34";
 createNode unitConversion -n "unitConversion35";
 	rename -uid "376D3653-4E1B-A061-FA99-C5906B041D12";
 	setAttr ".cf" 0.017453292519943295;
+createNode lambert -n "Mask_MAT";
+	rename -uid "BD31D45B-4331-6A26-B385-B39E0161E60D";
+createNode shadingEngine -n "lambert4SG";
+	rename -uid "8B4FF3D8-479D-6079-36BA-53BC59C6D742";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo7";
+	rename -uid "C316C958-4C62-419D-1F13-9F8B6EF5C428";
 createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
-	rename -uid "F76A9937-48A6-EE65-E7E2-B28F6D3B765E";
+	rename -uid "14062B61-4A0E-C899-F874-2AA73B0BA6E9";
 	setAttr -s 3 ".tgi";
 	setAttr ".tgi[0].tn" -type "string" "Right Lid Soft";
-	setAttr ".tgi[0].vl" -type "double2" 404.67031359017648 -2323.8094314696177 ;
-	setAttr ".tgi[0].vh" -type "double2" 7116.7579589636889 -505.9523608476249 ;
+	setAttr ".tgi[0].vl" -type "double2" -2628.5713241215153 -2943.5385303772832 ;
+	setAttr ".tgi[0].vh" -type "double2" 10151.586898199357 112.58626191683821 ;
 	setAttr -s 20 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 3988.571533203125;
-	setAttr ".tgi[0].ni[0].y" -1915.7142333984375;
+	setAttr ".tgi[0].ni[0].x" 2180.307861328125;
+	setAttr ".tgi[0].ni[0].y" -1551.0906982421875;
 	setAttr ".tgi[0].ni[0].nvs" 18306;
-	setAttr ".tgi[0].ni[1].x" 3203.594482421875;
-	setAttr ".tgi[0].ni[1].y" -503.08392333984375;
-	setAttr ".tgi[0].ni[1].nvs" 18306;
-	setAttr ".tgi[0].ni[2].x" 4004.0625;
-	setAttr ".tgi[0].ni[2].y" -1051.0064697265625;
+	setAttr ".tgi[0].ni[1].x" 4147.70703125;
+	setAttr ".tgi[0].ni[1].y" -1347.4918212890625;
+	setAttr ".tgi[0].ni[1].nvs" 18304;
+	setAttr ".tgi[0].ni[2].x" 3073.185791015625;
+	setAttr ".tgi[0].ni[2].y" -1077.4959716796875;
 	setAttr ".tgi[0].ni[2].nvs" 18306;
-	setAttr ".tgi[0].ni[3].x" 4147.70703125;
-	setAttr ".tgi[0].ni[3].y" -1347.4918212890625;
-	setAttr ".tgi[0].ni[3].nvs" 18304;
-	setAttr ".tgi[0].ni[4].x" 2809.69970703125;
-	setAttr ".tgi[0].ni[4].y" -514.54547119140625;
+	setAttr ".tgi[0].ni[3].x" 3988.571533203125;
+	setAttr ".tgi[0].ni[3].y" -1915.7142333984375;
+	setAttr ".tgi[0].ni[3].nvs" 18306;
+	setAttr ".tgi[0].ni[4].x" 5070.26806640625;
+	setAttr ".tgi[0].ni[4].y" -1209.172119140625;
 	setAttr ".tgi[0].ni[4].nvs" 18306;
-	setAttr ".tgi[0].ni[5].x" 3988.571533203125;
-	setAttr ".tgi[0].ni[5].y" -1738.5714111328125;
-	setAttr ".tgi[0].ni[5].nvs" 18305;
-	setAttr ".tgi[0].ni[6].x" 2453.969482421875;
-	setAttr ".tgi[0].ni[6].y" -885.77569580078125;
+	setAttr ".tgi[0].ni[5].x" 4604.12744140625;
+	setAttr ".tgi[0].ni[5].y" -84.598213195800781;
+	setAttr ".tgi[0].ni[5].nvs" 18306;
+	setAttr ".tgi[0].ni[6].x" 3703.1494140625;
+	setAttr ".tgi[0].ni[6].y" -821.31085205078125;
 	setAttr ".tgi[0].ni[6].nvs" 18306;
-	setAttr ".tgi[0].ni[7].x" 3073.185791015625;
-	setAttr ".tgi[0].ni[7].y" -1077.4959716796875;
+	setAttr ".tgi[0].ni[7].x" 2809.69970703125;
+	setAttr ".tgi[0].ni[7].y" -514.54547119140625;
 	setAttr ".tgi[0].ni[7].nvs" 18306;
-	setAttr ".tgi[0].ni[8].x" 2180.307861328125;
-	setAttr ".tgi[0].ni[8].y" -1551.0906982421875;
+	setAttr ".tgi[0].ni[8].x" 4922.3984375;
+	setAttr ".tgi[0].ni[8].y" -323.68505859375;
 	setAttr ".tgi[0].ni[8].nvs" 18306;
 	setAttr ".tgi[0].ni[9].x" 3662.309326171875;
 	setAttr ".tgi[0].ni[9].y" -1791.4691162109375;
 	setAttr ".tgi[0].ni[9].nvs" 18306;
-	setAttr ".tgi[0].ni[10].x" 4497.09814453125;
-	setAttr ".tgi[0].ni[10].y" -1984.8133544921875;
+	setAttr ".tgi[0].ni[10].x" 3247.8125;
+	setAttr ".tgi[0].ni[10].y" -1823.575439453125;
 	setAttr ".tgi[0].ni[10].nvs" 18306;
-	setAttr ".tgi[0].ni[11].x" 1678.269287109375;
-	setAttr ".tgi[0].ni[11].y" 1969.9285888671875;
-	setAttr ".tgi[0].ni[11].nvs" 18304;
-	setAttr ".tgi[0].ni[12].x" 5070.26806640625;
-	setAttr ".tgi[0].ni[12].y" -1209.172119140625;
-	setAttr ".tgi[0].ni[12].nvs" 18306;
-	setAttr ".tgi[0].ni[13].x" 4604.12744140625;
-	setAttr ".tgi[0].ni[13].y" -84.598213195800781;
+	setAttr ".tgi[0].ni[11].x" 2777.447265625;
+	setAttr ".tgi[0].ni[11].y" -2004.395263671875;
+	setAttr ".tgi[0].ni[11].nvs" 18306;
+	setAttr ".tgi[0].ni[12].x" 3988.571533203125;
+	setAttr ".tgi[0].ni[12].y" -1738.5714111328125;
+	setAttr ".tgi[0].ni[12].nvs" 18305;
+	setAttr ".tgi[0].ni[13].x" 4497.09814453125;
+	setAttr ".tgi[0].ni[13].y" -1984.8133544921875;
 	setAttr ".tgi[0].ni[13].nvs" 18306;
-	setAttr ".tgi[0].ni[14].x" 3247.8125;
-	setAttr ".tgi[0].ni[14].y" -1823.575439453125;
+	setAttr ".tgi[0].ni[14].x" 3436.984619140625;
+	setAttr ".tgi[0].ni[14].y" -1182.6785888671875;
 	setAttr ".tgi[0].ni[14].nvs" 18306;
-	setAttr ".tgi[0].ni[15].x" 3436.984619140625;
-	setAttr ".tgi[0].ni[15].y" -1182.6785888671875;
+	setAttr ".tgi[0].ni[15].x" 3203.594482421875;
+	setAttr ".tgi[0].ni[15].y" -503.08392333984375;
 	setAttr ".tgi[0].ni[15].nvs" 18306;
-	setAttr ".tgi[0].ni[16].x" 4922.3984375;
-	setAttr ".tgi[0].ni[16].y" -323.68505859375;
+	setAttr ".tgi[0].ni[16].x" 2091.24462890625;
+	setAttr ".tgi[0].ni[16].y" -610.15264892578125;
 	setAttr ".tgi[0].ni[16].nvs" 18306;
-	setAttr ".tgi[0].ni[17].x" 3703.1494140625;
-	setAttr ".tgi[0].ni[17].y" -821.31085205078125;
-	setAttr ".tgi[0].ni[17].nvs" 18306;
-	setAttr ".tgi[0].ni[18].x" 2091.24462890625;
-	setAttr ".tgi[0].ni[18].y" -610.15264892578125;
+	setAttr ".tgi[0].ni[17].x" 1678.269287109375;
+	setAttr ".tgi[0].ni[17].y" 1969.9285888671875;
+	setAttr ".tgi[0].ni[17].nvs" 18304;
+	setAttr ".tgi[0].ni[18].x" 4004.0625;
+	setAttr ".tgi[0].ni[18].y" -1051.0064697265625;
 	setAttr ".tgi[0].ni[18].nvs" 18306;
-	setAttr ".tgi[0].ni[19].x" 2777.447265625;
-	setAttr ".tgi[0].ni[19].y" -2004.395263671875;
+	setAttr ".tgi[0].ni[19].x" 2453.969482421875;
+	setAttr ".tgi[0].ni[19].y" -885.77569580078125;
 	setAttr ".tgi[0].ni[19].nvs" 18306;
 	setAttr ".tgi[1].tn" -type "string" "Left Lid Soft";
-	setAttr ".tgi[1].vl" -type "double2" 3507.7684098939835 -1244.0475696136102 ;
-	setAttr ".tgi[1].vh" -type "double2" 7466.0406778555453 763.09520777255887 ;
+	setAttr ".tgi[1].vl" -type "double2" -1565.8729536508476 -1560.7459310661593 ;
+	setAttr ".tgi[1].vh" -type "double2" 12694.607846148185 924.07411371512001 ;
 	setAttr -s 20 ".tgi[1].ni";
-	setAttr ".tgi[1].ni[0].x" 5774.28564453125;
-	setAttr ".tgi[1].ni[0].y" 92.857139587402344;
+	setAttr ".tgi[1].ni[0].x" 6408.5712890625;
+	setAttr ".tgi[1].ni[0].y" -234.28572082519531;
 	setAttr ".tgi[1].ni[0].nvs" 18306;
-	setAttr ".tgi[1].ni[1].x" 5774.28564453125;
-	setAttr ".tgi[1].ni[1].y" -332.85714721679688;
-	setAttr ".tgi[1].ni[1].nvs" 18306;
-	setAttr ".tgi[1].ni[2].x" 6101.4287109375;
-	setAttr ".tgi[1].ni[2].y" -125.71428680419922;
+	setAttr ".tgi[1].ni[1].x" 6101.4287109375;
+	setAttr ".tgi[1].ni[1].y" -325.71429443359375;
+	setAttr ".tgi[1].ni[1].nvs" 18305;
+	setAttr ".tgi[1].ni[2].x" 5392.85693359375;
+	setAttr ".tgi[1].ni[2].y" -287.14285278320313;
 	setAttr ".tgi[1].ni[2].nvs" 18306;
-	setAttr ".tgi[1].ni[3].x" 5392.85693359375;
-	setAttr ".tgi[1].ni[3].y" 138.57142639160156;
-	setAttr ".tgi[1].ni[3].nvs" 18306;
-	setAttr ".tgi[1].ni[4].x" 5774.28564453125;
-	setAttr ".tgi[1].ni[4].y" 507.14285278320313;
-	setAttr ".tgi[1].ni[4].nvs" 18306;
-	setAttr ".tgi[1].ni[5].x" 5011.4287109375;
-	setAttr ".tgi[1].ni[5].y" 441.42855834960938;
+	setAttr ".tgi[1].ni[3].x" 6101.4287109375;
+	setAttr ".tgi[1].ni[3].y" 398.57144165039063;
+	setAttr ".tgi[1].ni[3].nvs" 18305;
+	setAttr ".tgi[1].ni[4].x" 6408.5712890625;
+	setAttr ".tgi[1].ni[4].y" -132.85714721679688;
+	setAttr ".tgi[1].ni[4].nvs" 18304;
+	setAttr ".tgi[1].ni[5].x" 5774.28564453125;
+	setAttr ".tgi[1].ni[5].y" 507.14285278320313;
 	setAttr ".tgi[1].ni[5].nvs" 18306;
-	setAttr ".tgi[1].ni[6].x" 6408.5712890625;
-	setAttr ".tgi[1].ni[6].y" -132.85714721679688;
-	setAttr ".tgi[1].ni[6].nvs" 18304;
-	setAttr ".tgi[1].ni[7].x" 5392.85693359375;
-	setAttr ".tgi[1].ni[7].y" -287.14285278320313;
+	setAttr ".tgi[1].ni[6].x" 5392.85693359375;
+	setAttr ".tgi[1].ni[6].y" 552.85711669921875;
+	setAttr ".tgi[1].ni[6].nvs" 18306;
+	setAttr ".tgi[1].ni[7].x" 2753.21240234375;
+	setAttr ".tgi[1].ni[7].y" 912.0745849609375;
 	setAttr ".tgi[1].ni[7].nvs" 18306;
-	setAttr ".tgi[1].ni[8].x" 6101.4287109375;
-	setAttr ".tgi[1].ni[8].y" -325.71429443359375;
-	setAttr ".tgi[1].ni[8].nvs" 18305;
-	setAttr ".tgi[1].ni[9].x" 6101.4287109375;
+	setAttr ".tgi[1].ni[8].x" 5774.28564453125;
+	setAttr ".tgi[1].ni[8].y" 92.857139587402344;
+	setAttr ".tgi[1].ni[8].nvs" 18306;
+	setAttr ".tgi[1].ni[9].x" 4684.28564453125;
 	setAttr ".tgi[1].ni[9].y" 398.57144165039063;
-	setAttr ".tgi[1].ni[9].nvs" 18305;
+	setAttr ".tgi[1].ni[9].nvs" 18306;
 	setAttr ".tgi[1].ni[10].x" 5011.4287109375;
-	setAttr ".tgi[1].ni[10].y" 15.714285850524902;
+	setAttr ".tgi[1].ni[10].y" 441.42855834960938;
 	setAttr ".tgi[1].ni[10].nvs" 18306;
-	setAttr ".tgi[1].ni[11].x" 4684.28564453125;
-	setAttr ".tgi[1].ni[11].y" 398.57144165039063;
+	setAttr ".tgi[1].ni[11].x" 6408.5712890625;
+	setAttr ".tgi[1].ni[11].y" 538.5714111328125;
 	setAttr ".tgi[1].ni[11].nvs" 18306;
-	setAttr ".tgi[1].ni[12].x" 4377.14306640625;
-	setAttr ".tgi[1].ni[12].y" 521.4285888671875;
+	setAttr ".tgi[1].ni[12].x" 6101.4287109375;
+	setAttr ".tgi[1].ni[12].y" -125.71428680419922;
 	setAttr ".tgi[1].ni[12].nvs" 18306;
-	setAttr ".tgi[1].ni[13].x" 2753.21240234375;
-	setAttr ".tgi[1].ni[13].y" 912.0745849609375;
+	setAttr ".tgi[1].ni[13].x" 4377.14306640625;
+	setAttr ".tgi[1].ni[13].y" -151.42857360839844;
 	setAttr ".tgi[1].ni[13].nvs" 18306;
-	setAttr ".tgi[1].ni[14].x" 5392.85693359375;
-	setAttr ".tgi[1].ni[14].y" -712.85711669921875;
+	setAttr ".tgi[1].ni[14].x" 5011.4287109375;
+	setAttr ".tgi[1].ni[14].y" 15.714285850524902;
 	setAttr ".tgi[1].ni[14].nvs" 18306;
-	setAttr ".tgi[1].ni[15].x" 6408.5712890625;
-	setAttr ".tgi[1].ni[15].y" -234.28572082519531;
-	setAttr ".tgi[1].ni[15].nvs" 18306;
+	setAttr ".tgi[1].ni[15].x" 6101.4287109375;
+	setAttr ".tgi[1].ni[15].y" 180;
+	setAttr ".tgi[1].ni[15].nvs" 18304;
 	setAttr ".tgi[1].ni[16].x" 5392.85693359375;
-	setAttr ".tgi[1].ni[16].y" 552.85711669921875;
+	setAttr ".tgi[1].ni[16].y" 138.57142639160156;
 	setAttr ".tgi[1].ni[16].nvs" 18306;
-	setAttr ".tgi[1].ni[17].x" 6408.5712890625;
-	setAttr ".tgi[1].ni[17].y" 538.5714111328125;
+	setAttr ".tgi[1].ni[17].x" 5774.28564453125;
+	setAttr ".tgi[1].ni[17].y" -332.85714721679688;
 	setAttr ".tgi[1].ni[17].nvs" 18306;
-	setAttr ".tgi[1].ni[18].x" 6101.4287109375;
-	setAttr ".tgi[1].ni[18].y" 180;
-	setAttr ".tgi[1].ni[18].nvs" 18304;
-	setAttr ".tgi[1].ni[19].x" 4377.14306640625;
-	setAttr ".tgi[1].ni[19].y" -151.42857360839844;
+	setAttr ".tgi[1].ni[18].x" 4377.14306640625;
+	setAttr ".tgi[1].ni[18].y" 521.4285888671875;
+	setAttr ".tgi[1].ni[18].nvs" 18306;
+	setAttr ".tgi[1].ni[19].x" 5392.85693359375;
+	setAttr ".tgi[1].ni[19].y" -712.85711669921875;
 	setAttr ".tgi[1].ni[19].nvs" 18306;
 	setAttr ".tgi[2].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[2].vl" -type "double2" -875.66524159339087 -622.86412826391825 ;
-	setAttr ".tgi[2].vh" -type "double2" 1262.1498244929319 461.16945477513684 ;
-	setAttr -s 8 ".tgi[2].ni";
-	setAttr ".tgi[2].ni[0].x" 268.57144165039063;
-	setAttr ".tgi[2].ni[0].y" 390;
+	setAttr ".tgi[2].vl" -type "double2" -1106.9314164214279 -294.83996259552737 ;
+	setAttr ".tgi[2].vh" -type "double2" 1033.1244459156683 796.47648238684519 ;
+	setAttr -s 5 ".tgi[2].ni";
+	setAttr ".tgi[2].ni[0].x" 652.717041015625;
+	setAttr ".tgi[2].ni[0].y" 132.99720764160156;
 	setAttr ".tgi[2].ni[0].nvs" 18304;
-	setAttr ".tgi[2].ni[1].x" -12.52100944519043;
-	setAttr ".tgi[2].ni[1].y" -167.64704895019531;
+	setAttr ".tgi[2].ni[1].x" -934.089599609375;
+	setAttr ".tgi[2].ni[1].y" 64.87396240234375;
 	setAttr ".tgi[2].ni[1].nvs" 18304;
-	setAttr ".tgi[2].ni[2].x" 268.57144165039063;
-	setAttr ".tgi[2].ni[2].y" 267.14285278320313;
-	setAttr ".tgi[2].ni[2].nvs" 18304;
-	setAttr ".tgi[2].ni[3].x" 712.52099609375;
-	setAttr ".tgi[2].ni[3].y" 173.78150939941406;
+	setAttr ".tgi[2].ni[2].x" -75.574203491210938;
+	setAttr ".tgi[2].ni[2].y" 505.71426391601563;
+	setAttr ".tgi[2].ni[2].nvs" 18306;
+	setAttr ".tgi[2].ni[3].x" -567.70306396484375;
+	setAttr ".tgi[2].ni[3].y" 616.72265625;
 	setAttr ".tgi[2].ni[3].nvs" 18306;
-	setAttr ".tgi[2].ni[4].x" -631.4285888671875;
-	setAttr ".tgi[2].ni[4].y" 164.11764526367188;
-	setAttr ".tgi[2].ni[4].nvs" 18306;
-	setAttr ".tgi[2].ni[5].x" 268.57144165039063;
-	setAttr ".tgi[2].ni[5].y" 145.12605285644531;
-	setAttr ".tgi[2].ni[5].nvs" 18306;
-	setAttr ".tgi[2].ni[6].x" 268.57144165039063;
-	setAttr ".tgi[2].ni[6].y" -348.57144165039063;
-	setAttr ".tgi[2].ni[6].nvs" 18304;
-	setAttr ".tgi[2].ni[7].x" 268.57144165039063;
-	setAttr ".tgi[2].ni[7].y" -500;
-	setAttr ".tgi[2].ni[7].nvs" 18304;
+	setAttr ".tgi[2].ni[4].x" 649.85992431640625;
+	setAttr ".tgi[2].ni[4].y" 435.85433959960938;
+	setAttr ".tgi[2].ni[4].nvs" 18304;
 select -ne :time1;
 	setAttr -av -k on ".cch";
 	setAttr -av -cb on ".ihi";
@@ -43277,7 +43282,7 @@ select -ne :renderPartition;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 11 ".st";
+	setAttr -s 13 ".st";
 	setAttr -cb on ".an";
 	setAttr -cb on ".pt";
 select -ne :renderGlobalsList1;
@@ -43290,7 +43295,7 @@ select -ne :defaultShaderList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 14 ".s";
+	setAttr -s 16 ".s";
 select -ne :postProcessList1;
 	setAttr -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -43302,7 +43307,7 @@ select -ne :defaultRenderUtilityList1;
 	setAttr -cb on ".ihi";
 	setAttr -av -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 63 ".u";
+	setAttr -s 64 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -k on ".ihi";
 	setAttr -s 2 ".r";
@@ -43311,7 +43316,7 @@ select -ne :defaultTextureList1;
 	setAttr -cb on ".ihi";
 	setAttr -k on ".nds";
 	setAttr -cb on ".bnm";
-	setAttr -s 5 ".tx";
+	setAttr -s 6 ".tx";
 select -ne :initialShadingGroup;
 	setAttr -av -k on ".cch";
 	setAttr -cb on ".ihi";
@@ -44303,23 +44308,23 @@ connectAttr "SKIN_L_Earing_01_Jnt_scaleConstraint1.csz" "Akali_Base_SKINRN.phl[4
 		;
 connectAttr "Akali_Base_SKINRN.phl[441]" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tsc"
 		;
-connectAttr "Akali_Base_SKINRN.phl[442]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
+connectAttr "Akali_Base_SKINRN.phl[442]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
 connectAttr "unitConversion23.o" "Akali_Base_SKINRN.phl[443]";
 connectAttr "unitConversion29.o" "Akali_Base_SKINRN.phl[444]";
-connectAttr "Akali_Base_SKINRN.phl[445]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+connectAttr "Akali_Base_SKINRN.phl[445]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
 		;
 connectAttr "unitConversion24.o" "Akali_Base_SKINRN.phl[446]";
 connectAttr "unitConversion28.o" "Akali_Base_SKINRN.phl[447]";
-connectAttr "Akali_Base_SKINRN.phl[448]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
+connectAttr "Akali_Base_SKINRN.phl[448]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
-connectAttr "Akali_Base_SKINRN.phl[449]" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[17].dn"
+connectAttr "Akali_Base_SKINRN.phl[449]" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[11].dn"
 		;
 connectAttr "unitConversion35.o" "Akali_Base_SKINRN.phl[450]";
 connectAttr "unitConversion32.o" "Akali_Base_SKINRN.phl[451]";
-connectAttr "Akali_Base_SKINRN.phl[452]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
+connectAttr "Akali_Base_SKINRN.phl[452]" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "Akali_Base_SKINRN.phl[453]" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[15].dn"
+connectAttr "Akali_Base_SKINRN.phl[453]" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[0].dn"
 		;
 connectAttr "unitConversion31.o" "Akali_Base_SKINRN.phl[454]";
 connectAttr "unitConversion33.o" "Akali_Base_SKINRN.phl[455]";
@@ -46525,16 +46530,15 @@ connectAttr "SKIN_L_Foot_End_Jnt_scaleConstraint1.csz" "Akali_Base_SKINRN.phl[15
 connectAttr "Akali_Base_SKINRN.phl[1579]" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tsc"
 		;
 connectAttr "World_FK_Ctrl.Resolution" "Akali_Base_SKINRN.phl[1580]";
-connectAttr "Akali_Base_SKINRN.phl[1581]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[3].dn"
-		;
+connectAttr "World_FK_Ctrl.Jacket_Mesh_Vis" "Akali_Base_SKINRN.phl[1581]";
 connectAttr "World_FK_Ctrl.Jacket_Mesh_Vis" "Akali_Base_SKINRN.phl[1582]";
-connectAttr "Akali_Base_SKINRN.phl[1583]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[0].dn"
+connectAttr "World_FK_Ctrl.Jacket_Mesh_Vis" "Akali_Base_SKINRN.phl[1583]";
+connectAttr "Akali_Base_SKINRN.phl[1584]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[2].dn"
 		;
-connectAttr "World_FK_Ctrl.Jacket_Mesh_Vis" "Akali_Base_SKINRN.phl[1584]";
-connectAttr "Akali_Base_SKINRN.phl[1585]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[6].dn"
+connectAttr "World_FK_Ctrl.Mask_Mesh_Vis" "Akali_Base_SKINRN.phl[1585]";
+connectAttr "Akali_Base_SKINRN.phl[1586]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[0].dn"
 		;
-connectAttr "World_FK_Ctrl.Jacket_Mesh_Vis" "Akali_Base_SKINRN.phl[1586]";
-connectAttr "Akali_Base_SKINRN.phl[1587]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[2].dn"
+connectAttr "Akali_Base_SKINRN.phl[1587]" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[4].dn"
 		;
 connectAttr "skinCluster1.og[0]" "IK_Spine_CurveShape.cr";
 connectAttr "tweak1.pl[0].cp[0]" "IK_Spine_CurveShape.twl";
@@ -58521,10 +58525,6 @@ connectAttr "Jaw_Jnt.ssc" "SKIN_Jaw_Jnt_parentConstraint1.tg[0].tsc";
 connectAttr "Jaw_Jnt.is" "SKIN_Jaw_Jnt_parentConstraint1.tg[0].tis";
 connectAttr "SKIN_Jaw_Jnt_parentConstraint1.w0" "SKIN_Jaw_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Root_Jnt.s" "SKIN_Root_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Root_Jnt.pm" "SKIN_Root_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Root_Jnt_scaleConstraint1.w0" "SKIN_Root_Jnt_scaleConstraint1.tg[0].tw"
-		;
 connectAttr "Root_Jnt.t" "SKIN_Root_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Root_Jnt.rp" "SKIN_Root_Jnt_parentConstraint2.tg[0].trp";
 connectAttr "Root_Jnt.rpt" "SKIN_Root_Jnt_parentConstraint2.tg[0].trt";
@@ -58537,9 +58537,9 @@ connectAttr "Root_Jnt.ssc" "SKIN_Root_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Root_Jnt.is" "SKIN_Root_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Root_Jnt_parentConstraint2.w0" "SKIN_Root_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Hip_Jnt.s" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Hip_Jnt.pm" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Hip_Jnt_scaleConstraint1.w0" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Root_Jnt.s" "SKIN_Root_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Root_Jnt.pm" "SKIN_Root_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Root_Jnt_scaleConstraint1.w0" "SKIN_Root_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Hip_Jnt.t" "SKIN_Hip_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Hip_Jnt.rp" "SKIN_Hip_Jnt_parentConstraint2.tg[0].trp";
@@ -58553,9 +58553,9 @@ connectAttr "Hip_Jnt.ssc" "SKIN_Hip_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Hip_Jnt.is" "SKIN_Hip_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Hip_Jnt_parentConstraint2.w0" "SKIN_Hip_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Leg_Jnt.s" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Leg_Jnt.pm" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Leg_Jnt_scaleConstraint1.w0" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Hip_Jnt.s" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Hip_Jnt.pm" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Hip_Jnt_scaleConstraint1.w0" "SKIN_Hip_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Leg_Jnt.t" "SKIN_L_Leg_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Leg_Jnt.rp" "SKIN_L_Leg_Jnt_parentConstraint2.tg[0].trp";
@@ -58569,9 +58569,9 @@ connectAttr "L_Leg_Jnt.ssc" "SKIN_L_Leg_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Leg_Jnt.is" "SKIN_L_Leg_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Leg_Jnt_parentConstraint2.w0" "SKIN_L_Leg_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Knee_Jnt.s" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Knee_Jnt.pm" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Knee_Jnt_scaleConstraint1.w0" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Leg_Jnt.s" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Leg_Jnt.pm" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Leg_Jnt_scaleConstraint1.w0" "SKIN_L_Leg_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Knee_Jnt.t" "SKIN_L_Knee_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Knee_Jnt.rp" "SKIN_L_Knee_Jnt_parentConstraint2.tg[0].trp";
@@ -58585,9 +58585,9 @@ connectAttr "L_Knee_Jnt.ssc" "SKIN_L_Knee_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Knee_Jnt.is" "SKIN_L_Knee_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Knee_Jnt_parentConstraint2.w0" "SKIN_L_Knee_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Ankle_Jnt.s" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Ankle_Jnt.pm" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Ankle_Jnt_scaleConstraint1.w0" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Knee_Jnt.s" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Knee_Jnt.pm" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Knee_Jnt_scaleConstraint1.w0" "SKIN_L_Knee_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Ankle_Jnt.t" "SKIN_L_Ankle_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Ankle_Jnt.rp" "SKIN_L_Ankle_Jnt_parentConstraint2.tg[0].trp";
@@ -58601,9 +58601,9 @@ connectAttr "L_Ankle_Jnt.ssc" "SKIN_L_Ankle_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Ankle_Jnt.is" "SKIN_L_Ankle_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Ankle_Jnt_parentConstraint2.w0" "SKIN_L_Ankle_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Foot_Jnt.s" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Foot_Jnt.pm" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Foot_Jnt_scaleConstraint1.w0" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Ankle_Jnt.s" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Ankle_Jnt.pm" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Ankle_Jnt_scaleConstraint1.w0" "SKIN_L_Ankle_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Foot_Jnt.t" "SKIN_L_Foot_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Foot_Jnt.rp" "SKIN_L_Foot_Jnt_parentConstraint2.tg[0].trp";
@@ -58617,10 +58617,9 @@ connectAttr "L_Foot_Jnt.ssc" "SKIN_L_Foot_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Foot_Jnt.is" "SKIN_L_Foot_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Foot_Jnt_parentConstraint2.w0" "SKIN_L_Foot_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Foot_End_Jnt.s" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Foot_End_Jnt.pm" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Foot_End_Jnt_scaleConstraint1.w0" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Foot_Jnt.s" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Foot_Jnt.pm" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Foot_Jnt_scaleConstraint1.w0" "SKIN_L_Foot_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Foot_End_Jnt.t" "SKIN_L_Foot_End_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "L_Foot_End_Jnt.rp" "SKIN_L_Foot_End_Jnt_parentConstraint1.tg[0].trp"
@@ -58641,9 +58640,10 @@ connectAttr "L_Foot_End_Jnt.is" "SKIN_L_Foot_End_Jnt_parentConstraint1.tg[0].tis
 		;
 connectAttr "SKIN_L_Foot_End_Jnt_parentConstraint1.w0" "SKIN_L_Foot_End_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "R_Leg_Jnt.s" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Leg_Jnt.pm" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Leg_Jnt_scaleConstraint1.w0" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Foot_End_Jnt.s" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Foot_End_Jnt.pm" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Foot_End_Jnt_scaleConstraint1.w0" "SKIN_L_Foot_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Leg_Jnt.t" "SKIN_R_Leg_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Leg_Jnt.rp" "SKIN_R_Leg_Jnt_parentConstraint2.tg[0].trp";
@@ -58657,9 +58657,9 @@ connectAttr "R_Leg_Jnt.ssc" "SKIN_R_Leg_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Leg_Jnt.is" "SKIN_R_Leg_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Leg_Jnt_parentConstraint2.w0" "SKIN_R_Leg_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Knee_Jnt.s" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Knee_Jnt.pm" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Knee_Jnt_scaleConstraint1.w0" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Leg_Jnt.s" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Leg_Jnt.pm" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Leg_Jnt_scaleConstraint1.w0" "SKIN_R_Leg_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Knee_Jnt.t" "SKIN_R_Knee_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Knee_Jnt.rp" "SKIN_R_Knee_Jnt_parentConstraint2.tg[0].trp";
@@ -58673,9 +58673,9 @@ connectAttr "R_Knee_Jnt.ssc" "SKIN_R_Knee_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Knee_Jnt.is" "SKIN_R_Knee_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Knee_Jnt_parentConstraint2.w0" "SKIN_R_Knee_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Ankle_Jnt.s" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Ankle_Jnt.pm" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Ankle_Jnt_scaleConstraint1.w0" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Knee_Jnt.s" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Knee_Jnt.pm" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Knee_Jnt_scaleConstraint1.w0" "SKIN_R_Knee_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Ankle_Jnt.t" "SKIN_R_Ankle_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Ankle_Jnt.rp" "SKIN_R_Ankle_Jnt_parentConstraint2.tg[0].trp";
@@ -58689,9 +58689,9 @@ connectAttr "R_Ankle_Jnt.ssc" "SKIN_R_Ankle_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Ankle_Jnt.is" "SKIN_R_Ankle_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Ankle_Jnt_parentConstraint2.w0" "SKIN_R_Ankle_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Foot_Jnt.s" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Foot_Jnt.pm" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Foot_Jnt_scaleConstraint1.w0" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Ankle_Jnt.s" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Ankle_Jnt.pm" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Ankle_Jnt_scaleConstraint1.w0" "SKIN_R_Ankle_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Foot_Jnt.t" "SKIN_R_Foot_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Foot_Jnt.rp" "SKIN_R_Foot_Jnt_parentConstraint2.tg[0].trp";
@@ -58705,10 +58705,9 @@ connectAttr "R_Foot_Jnt.ssc" "SKIN_R_Foot_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Foot_Jnt.is" "SKIN_R_Foot_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Foot_Jnt_parentConstraint2.w0" "SKIN_R_Foot_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Foot_End_Jnt.s" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Foot_End_Jnt.pm" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Foot_End_Jnt_scaleConstraint1.w0" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Foot_Jnt.s" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Foot_Jnt.pm" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Foot_Jnt_scaleConstraint1.w0" "SKIN_R_Foot_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Foot_End_Jnt.t" "SKIN_R_Foot_End_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "R_Foot_End_Jnt.rp" "SKIN_R_Foot_End_Jnt_parentConstraint1.tg[0].trp"
@@ -58729,9 +58728,10 @@ connectAttr "R_Foot_End_Jnt.is" "SKIN_R_Foot_End_Jnt_parentConstraint1.tg[0].tis
 		;
 connectAttr "SKIN_R_Foot_End_Jnt_parentConstraint1.w0" "SKIN_R_Foot_End_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Spine01_Jnt.s" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Spine01_Jnt.pm" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Spine01_Jnt_scaleConstraint1.w0" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Foot_End_Jnt.s" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Foot_End_Jnt.pm" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Foot_End_Jnt_scaleConstraint1.w0" "SKIN_R_Foot_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Spine01_Jnt.t" "SKIN_Spine01_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Spine01_Jnt.rp" "SKIN_Spine01_Jnt_parentConstraint2.tg[0].trp";
@@ -58745,9 +58745,9 @@ connectAttr "Spine01_Jnt.ssc" "SKIN_Spine01_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Spine01_Jnt.is" "SKIN_Spine01_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Spine01_Jnt_parentConstraint2.w0" "SKIN_Spine01_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Spine02_Jnt.s" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Spine02_Jnt.pm" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Spine02_Jnt_scaleConstraint1.w0" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Spine01_Jnt.s" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Spine01_Jnt.pm" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Spine01_Jnt_scaleConstraint1.w0" "SKIN_Spine01_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Spine02_Jnt.t" "SKIN_Spine02_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Spine02_Jnt.rp" "SKIN_Spine02_Jnt_parentConstraint2.tg[0].trp";
@@ -58761,9 +58761,9 @@ connectAttr "Spine02_Jnt.ssc" "SKIN_Spine02_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Spine02_Jnt.is" "SKIN_Spine02_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Spine02_Jnt_parentConstraint2.w0" "SKIN_Spine02_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Spine03_Jnt.s" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Spine03_Jnt.pm" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Spine03_Jnt_scaleConstraint1.w0" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Spine02_Jnt.s" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Spine02_Jnt.pm" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Spine02_Jnt_scaleConstraint1.w0" "SKIN_Spine02_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Spine03_Jnt.t" "SKIN_Spine03_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Spine03_Jnt.rp" "SKIN_Spine03_Jnt_parentConstraint2.tg[0].trp";
@@ -58777,9 +58777,9 @@ connectAttr "Spine03_Jnt.ssc" "SKIN_Spine03_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Spine03_Jnt.is" "SKIN_Spine03_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Spine03_Jnt_parentConstraint2.w0" "SKIN_Spine03_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Spine04_Jnt.s" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Spine04_Jnt.pm" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Spine04_Jnt_scaleConstraint1.w0" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Spine03_Jnt.s" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Spine03_Jnt.pm" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Spine03_Jnt_scaleConstraint1.w0" "SKIN_Spine03_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Spine04_Jnt.t" "SKIN_Spine04_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Spine04_Jnt.rp" "SKIN_Spine04_Jnt_parentConstraint2.tg[0].trp";
@@ -58793,9 +58793,9 @@ connectAttr "Spine04_Jnt.ssc" "SKIN_Spine04_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Spine04_Jnt.is" "SKIN_Spine04_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Spine04_Jnt_parentConstraint2.w0" "SKIN_Spine04_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Spine05_Jnt.s" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Spine05_Jnt.pm" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Spine05_Jnt_scaleConstraint1.w0" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Spine04_Jnt.s" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Spine04_Jnt.pm" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Spine04_Jnt_scaleConstraint1.w0" "SKIN_Spine04_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Spine05_Jnt.t" "SKIN_Spine05_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Spine05_Jnt.rp" "SKIN_Spine05_Jnt_parentConstraint2.tg[0].trp";
@@ -58809,10 +58809,9 @@ connectAttr "Spine05_Jnt.ssc" "SKIN_Spine05_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Spine05_Jnt.is" "SKIN_Spine05_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Spine05_Jnt_parentConstraint2.w0" "SKIN_Spine05_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Clavicle_Jnt.s" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Clavicle_Jnt.pm" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Clavicle_Jnt_scaleConstraint1.w0" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Spine05_Jnt.s" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Spine05_Jnt.pm" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Spine05_Jnt_scaleConstraint1.w0" "SKIN_Spine05_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Clavicle_Jnt.t" "SKIN_L_Clavicle_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Clavicle_Jnt.rp" "SKIN_L_Clavicle_Jnt_parentConstraint2.tg[0].trp"
@@ -58833,9 +58832,10 @@ connectAttr "L_Clavicle_Jnt.is" "SKIN_L_Clavicle_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_L_Clavicle_Jnt_parentConstraint2.w0" "SKIN_L_Clavicle_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Arm_Jnt.s" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Arm_Jnt.pm" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Arm_Jnt_scaleConstraint1.w0" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Clavicle_Jnt.s" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Clavicle_Jnt.pm" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Clavicle_Jnt_scaleConstraint1.w0" "SKIN_L_Clavicle_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Arm_Jnt.t" "SKIN_L_Arm_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Arm_Jnt.rp" "SKIN_L_Arm_Jnt_parentConstraint2.tg[0].trp";
@@ -58849,9 +58849,9 @@ connectAttr "L_Arm_Jnt.ssc" "SKIN_L_Arm_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Arm_Jnt.is" "SKIN_L_Arm_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Arm_Jnt_parentConstraint2.w0" "SKIN_L_Arm_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Elbow_Jnt.s" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Elbow_Jnt.pm" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Elbow_Jnt_scaleConstraint1.w0" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Arm_Jnt.s" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Arm_Jnt.pm" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Arm_Jnt_scaleConstraint1.w0" "SKIN_L_Arm_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Elbow_Jnt.t" "SKIN_L_Elbow_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Elbow_Jnt.rp" "SKIN_L_Elbow_Jnt_parentConstraint2.tg[0].trp";
@@ -58865,9 +58865,9 @@ connectAttr "L_Elbow_Jnt.ssc" "SKIN_L_Elbow_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Elbow_Jnt.is" "SKIN_L_Elbow_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Elbow_Jnt_parentConstraint2.w0" "SKIN_L_Elbow_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Wrist_Jnt.s" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Wrist_Jnt.pm" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Wrist_Jnt_scaleConstraint1.w0" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Elbow_Jnt.s" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Elbow_Jnt.pm" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Elbow_Jnt_scaleConstraint1.w0" "SKIN_L_Elbow_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Wrist_Jnt.t" "SKIN_L_Wrist_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Wrist_Jnt.rp" "SKIN_L_Wrist_Jnt_parentConstraint2.tg[0].trp";
@@ -58881,11 +58881,9 @@ connectAttr "L_Wrist_Jnt.ssc" "SKIN_L_Wrist_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "L_Wrist_Jnt.is" "SKIN_L_Wrist_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_L_Wrist_Jnt_parentConstraint2.w0" "SKIN_L_Wrist_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Thumb_Base_Jnt.s" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "L_Thumb_Base_Jnt.pm" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Wrist_Jnt.s" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Wrist_Jnt.pm" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Wrist_Jnt_scaleConstraint1.w0" "SKIN_L_Wrist_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Thumb_Base_Jnt.t" "SKIN_L_Thumb_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -58909,11 +58907,11 @@ connectAttr "L_Thumb_Base_Jnt.is" "SKIN_L_Thumb_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_L_Thumb_Base_Jnt_parentConstraint2.w0" "SKIN_L_Thumb_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Thumb_Mid_Jnt.s" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Thumb_Base_Jnt.s" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Thumb_Mid_Jnt.pm" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Thumb_Base_Jnt.pm" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Thumb_Mid_Jnt.t" "SKIN_L_Thumb_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -58937,11 +58935,11 @@ connectAttr "L_Thumb_Mid_Jnt.is" "SKIN_L_Thumb_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Thumb_Mid_Jnt_parentConstraint2.w0" "SKIN_L_Thumb_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Thumb_End_Jnt.s" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Thumb_Mid_Jnt.s" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Thumb_End_Jnt.pm" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Thumb_Mid_Jnt.pm" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Thumb_End_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Thumb_End_Jnt.t" "SKIN_L_Thumb_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -58965,11 +58963,11 @@ connectAttr "L_Thumb_End_Jnt.is" "SKIN_L_Thumb_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Thumb_End_Jnt_parentConstraint2.w0" "SKIN_L_Thumb_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Index_Base_Jnt.s" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Thumb_End_Jnt.s" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Index_Base_Jnt.pm" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Thumb_End_Jnt.pm" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Index_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Thumb_End_Jnt_scaleConstraint1.w0" "SKIN_L_Thumb_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Index_Base_Jnt.t" "SKIN_L_Index_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -58993,11 +58991,11 @@ connectAttr "L_Index_Base_Jnt.is" "SKIN_L_Index_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_L_Index_Base_Jnt_parentConstraint2.w0" "SKIN_L_Index_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Index_Mid_Jnt.s" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Index_Base_Jnt.s" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Index_Mid_Jnt.pm" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Index_Base_Jnt.pm" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Index_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Index_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Index_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Index_Mid_Jnt.t" "SKIN_L_Index_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59021,11 +59019,11 @@ connectAttr "L_Index_Mid_Jnt.is" "SKIN_L_Index_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Index_Mid_Jnt_parentConstraint2.w0" "SKIN_L_Index_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Index_End_Jnt.s" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Index_Mid_Jnt.s" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Index_End_Jnt.pm" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Index_Mid_Jnt.pm" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Index_End_Jnt_scaleConstraint1.w0" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Index_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Index_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Index_End_Jnt.t" "SKIN_L_Index_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59049,11 +59047,11 @@ connectAttr "L_Index_End_Jnt.is" "SKIN_L_Index_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Index_End_Jnt_parentConstraint2.w0" "SKIN_L_Index_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Ring_Base_Jnt.s" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Index_End_Jnt.s" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Ring_Base_Jnt.pm" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Index_End_Jnt.pm" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Ring_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Index_End_Jnt_scaleConstraint1.w0" "SKIN_L_Index_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Ring_Base_Jnt.t" "SKIN_L_Ring_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59077,10 +59075,11 @@ connectAttr "L_Ring_Base_Jnt.is" "SKIN_L_Ring_Base_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Ring_Base_Jnt_parentConstraint2.w0" "SKIN_L_Ring_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Ring_Mid_Jnt.s" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Ring_Mid_Jnt.pm" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Ring_Base_Jnt.s" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Ring_Base_Jnt.pm" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Ring_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Ring_Mid_Jnt.t" "SKIN_L_Ring_Mid_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Ring_Mid_Jnt.rp" "SKIN_L_Ring_Mid_Jnt_parentConstraint2.tg[0].trp"
@@ -59101,10 +59100,10 @@ connectAttr "L_Ring_Mid_Jnt.is" "SKIN_L_Ring_Mid_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_L_Ring_Mid_Jnt_parentConstraint2.w0" "SKIN_L_Ring_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Ring_End_Jnt.s" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Ring_End_Jnt.pm" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Ring_Mid_Jnt.s" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Ring_Mid_Jnt.pm" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Ring_End_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Ring_End_Jnt.t" "SKIN_L_Ring_End_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Ring_End_Jnt.rp" "SKIN_L_Ring_End_Jnt_parentConstraint2.tg[0].trp"
@@ -59125,11 +59124,10 @@ connectAttr "L_Ring_End_Jnt.is" "SKIN_L_Ring_End_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_L_Ring_End_Jnt_parentConstraint2.w0" "SKIN_L_Ring_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Middle_Base_Jnt.s" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Ring_End_Jnt.s" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Ring_End_Jnt.pm" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "L_Middle_Base_Jnt.pm" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Middle_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Ring_End_Jnt_scaleConstraint1.w0" "SKIN_L_Ring_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Middle_Base_Jnt.t" "SKIN_L_Middle_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59153,11 +59151,11 @@ connectAttr "L_Middle_Base_Jnt.is" "SKIN_L_Middle_Base_Jnt_parentConstraint2.tg[
 		;
 connectAttr "SKIN_L_Middle_Base_Jnt_parentConstraint2.w0" "SKIN_L_Middle_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Middle_Mid_Jnt.s" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Middle_Base_Jnt.s" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Middle_Mid_Jnt.pm" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Middle_Base_Jnt.pm" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Middle_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Middle_Mid_Jnt.t" "SKIN_L_Middle_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59181,11 +59179,11 @@ connectAttr "L_Middle_Mid_Jnt.is" "SKIN_L_Middle_Mid_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_L_Middle_Mid_Jnt_parentConstraint2.w0" "SKIN_L_Middle_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Middle_End_Jnt.s" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Middle_Mid_Jnt.s" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Middle_End_Jnt.pm" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Middle_Mid_Jnt.pm" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Middle_End_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Middle_End_Jnt.t" "SKIN_L_Middle_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59209,11 +59207,11 @@ connectAttr "L_Middle_End_Jnt.is" "SKIN_L_Middle_End_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_L_Middle_End_Jnt_parentConstraint2.w0" "SKIN_L_Middle_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Pinky_Base_Jnt.s" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Middle_End_Jnt.s" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Pinky_Base_Jnt.pm" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Middle_End_Jnt.pm" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Middle_End_Jnt_scaleConstraint1.w0" "SKIN_L_Middle_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Pinky_Base_Jnt.t" "SKIN_L_Pinky_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59237,11 +59235,11 @@ connectAttr "L_Pinky_Base_Jnt.is" "SKIN_L_Pinky_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_L_Pinky_Base_Jnt_parentConstraint2.w0" "SKIN_L_Pinky_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Pinky_Mid_Jnt.s" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Pinky_Base_Jnt.s" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Pinky_Mid_Jnt.pm" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Pinky_Base_Jnt.pm" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Pinky_Mid_Jnt.t" "SKIN_L_Pinky_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59265,11 +59263,11 @@ connectAttr "L_Pinky_Mid_Jnt.is" "SKIN_L_Pinky_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Pinky_Mid_Jnt_parentConstraint2.w0" "SKIN_L_Pinky_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Pinky_End_Jnt.s" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Pinky_Mid_Jnt.s" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Pinky_End_Jnt.pm" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Pinky_Mid_Jnt.pm" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Pinky_End_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Pinky_End_Jnt.t" "SKIN_L_Pinky_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59293,9 +59291,11 @@ connectAttr "L_Pinky_End_Jnt.is" "SKIN_L_Pinky_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Pinky_End_Jnt_parentConstraint2.w0" "SKIN_L_Pinky_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Palm_Jnt.s" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Palm_Jnt.pm" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Palm_Jnt_scaleConstraint1.w0" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Pinky_End_Jnt.s" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "L_Pinky_End_Jnt.pm" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Pinky_End_Jnt_scaleConstraint1.w0" "SKIN_L_Pinky_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Palm_Jnt.t" "SKIN_L_Palm_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "L_Palm_Jnt.rp" "SKIN_L_Palm_Jnt_parentConstraint1.tg[0].trp";
@@ -59309,10 +59309,9 @@ connectAttr "L_Palm_Jnt.ssc" "SKIN_L_Palm_Jnt_parentConstraint1.tg[0].tsc";
 connectAttr "L_Palm_Jnt.is" "SKIN_L_Palm_Jnt_parentConstraint1.tg[0].tis";
 connectAttr "SKIN_L_Palm_Jnt_parentConstraint1.w0" "SKIN_L_Palm_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "R_Clavicle_Jnt.s" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Clavicle_Jnt.pm" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Clavicle_Jnt_scaleConstraint1.w0" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Palm_Jnt.s" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Palm_Jnt.pm" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Palm_Jnt_scaleConstraint1.w0" "SKIN_L_Palm_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Clavicle_Jnt.t" "SKIN_R_Clavicle_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Clavicle_Jnt.rp" "SKIN_R_Clavicle_Jnt_parentConstraint2.tg[0].trp"
@@ -59333,9 +59332,10 @@ connectAttr "R_Clavicle_Jnt.is" "SKIN_R_Clavicle_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_R_Clavicle_Jnt_parentConstraint2.w0" "SKIN_R_Clavicle_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Arm_Jnt.s" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Arm_Jnt.pm" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Arm_Jnt_scaleConstraint1.w0" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Clavicle_Jnt.s" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Clavicle_Jnt.pm" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Clavicle_Jnt_scaleConstraint1.w0" "SKIN_R_Clavicle_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Arm_Jnt.t" "SKIN_R_Arm_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Arm_Jnt.rp" "SKIN_R_Arm_Jnt_parentConstraint2.tg[0].trp";
@@ -59349,9 +59349,9 @@ connectAttr "R_Arm_Jnt.ssc" "SKIN_R_Arm_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Arm_Jnt.is" "SKIN_R_Arm_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Arm_Jnt_parentConstraint2.w0" "SKIN_R_Arm_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Elbow_Jnt.s" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Elbow_Jnt.pm" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Elbow_Jnt_scaleConstraint1.w0" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Arm_Jnt.s" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Arm_Jnt.pm" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Arm_Jnt_scaleConstraint1.w0" "SKIN_R_Arm_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Elbow_Jnt.t" "SKIN_R_Elbow_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Elbow_Jnt.rp" "SKIN_R_Elbow_Jnt_parentConstraint2.tg[0].trp";
@@ -59365,9 +59365,9 @@ connectAttr "R_Elbow_Jnt.ssc" "SKIN_R_Elbow_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Elbow_Jnt.is" "SKIN_R_Elbow_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Elbow_Jnt_parentConstraint2.w0" "SKIN_R_Elbow_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Wrist_Jnt.s" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Wrist_Jnt.pm" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Wrist_Jnt_scaleConstraint1.w0" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Elbow_Jnt.s" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Elbow_Jnt.pm" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Elbow_Jnt_scaleConstraint1.w0" "SKIN_R_Elbow_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Wrist_Jnt.t" "SKIN_R_Wrist_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Wrist_Jnt.rp" "SKIN_R_Wrist_Jnt_parentConstraint2.tg[0].trp";
@@ -59381,11 +59381,9 @@ connectAttr "R_Wrist_Jnt.ssc" "SKIN_R_Wrist_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "R_Wrist_Jnt.is" "SKIN_R_Wrist_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_R_Wrist_Jnt_parentConstraint2.w0" "SKIN_R_Wrist_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Thumb_Base_Jnt.s" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "R_Thumb_Base_Jnt.pm" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Wrist_Jnt.s" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Wrist_Jnt.pm" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Wrist_Jnt_scaleConstraint1.w0" "SKIN_R_Wrist_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Thumb_Base_Jnt.t" "SKIN_R_Thumb_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59409,11 +59407,11 @@ connectAttr "R_Thumb_Base_Jnt.is" "SKIN_R_Thumb_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_R_Thumb_Base_Jnt_parentConstraint2.w0" "SKIN_R_Thumb_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Thumb_Mid_Jnt.s" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Thumb_Base_Jnt.s" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Thumb_Mid_Jnt.pm" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Thumb_Base_Jnt.pm" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Thumb_Mid_Jnt.t" "SKIN_R_Thumb_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59437,11 +59435,11 @@ connectAttr "R_Thumb_Mid_Jnt.is" "SKIN_R_Thumb_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Thumb_Mid_Jnt_parentConstraint2.w0" "SKIN_R_Thumb_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Thumb_End_Jnt.s" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Thumb_Mid_Jnt.s" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Thumb_End_Jnt.pm" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Thumb_Mid_Jnt.pm" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Thumb_End_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Thumb_End_Jnt.t" "SKIN_R_Thumb_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59465,11 +59463,11 @@ connectAttr "R_Thumb_End_Jnt.is" "SKIN_R_Thumb_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Thumb_End_Jnt_parentConstraint2.w0" "SKIN_R_Thumb_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Index_Base_Jnt.s" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Thumb_End_Jnt.s" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Index_Base_Jnt.pm" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Thumb_End_Jnt.pm" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Index_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Thumb_End_Jnt_scaleConstraint1.w0" "SKIN_R_Thumb_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Index_Base_Jnt.t" "SKIN_R_Index_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59493,11 +59491,11 @@ connectAttr "R_Index_Base_Jnt.is" "SKIN_R_Index_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_R_Index_Base_Jnt_parentConstraint2.w0" "SKIN_R_Index_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Index_Mid_Jnt.s" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Index_Base_Jnt.s" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Index_Mid_Jnt.pm" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Index_Base_Jnt.pm" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Index_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Index_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Index_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Index_Mid_Jnt.t" "SKIN_R_Index_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59521,11 +59519,11 @@ connectAttr "R_Index_Mid_Jnt.is" "SKIN_R_Index_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Index_Mid_Jnt_parentConstraint2.w0" "SKIN_R_Index_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Index_End_Jnt.s" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Index_Mid_Jnt.s" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Index_End_Jnt.pm" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Index_Mid_Jnt.pm" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Index_End_Jnt_scaleConstraint1.w0" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Index_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Index_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Index_End_Jnt.t" "SKIN_R_Index_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59549,11 +59547,11 @@ connectAttr "R_Index_End_Jnt.is" "SKIN_R_Index_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Index_End_Jnt_parentConstraint2.w0" "SKIN_R_Index_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Ring_Base_Jnt.s" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Index_End_Jnt.s" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Ring_Base_Jnt.pm" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Index_End_Jnt.pm" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Ring_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Index_End_Jnt_scaleConstraint1.w0" "SKIN_R_Index_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Ring_Base_Jnt.t" "SKIN_R_Ring_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59577,10 +59575,11 @@ connectAttr "R_Ring_Base_Jnt.is" "SKIN_R_Ring_Base_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Ring_Base_Jnt_parentConstraint2.w0" "SKIN_R_Ring_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Ring_Mid_Jnt.s" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Ring_Mid_Jnt.pm" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Ring_Base_Jnt.s" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Ring_Base_Jnt.pm" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Ring_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Ring_Mid_Jnt.t" "SKIN_R_Ring_Mid_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Ring_Mid_Jnt.rp" "SKIN_R_Ring_Mid_Jnt_parentConstraint2.tg[0].trp"
@@ -59601,10 +59600,10 @@ connectAttr "R_Ring_Mid_Jnt.is" "SKIN_R_Ring_Mid_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_R_Ring_Mid_Jnt_parentConstraint2.w0" "SKIN_R_Ring_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Ring_End_Jnt.s" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Ring_End_Jnt.pm" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Ring_Mid_Jnt.s" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Ring_Mid_Jnt.pm" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Ring_End_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Ring_End_Jnt.t" "SKIN_R_Ring_End_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Ring_End_Jnt.rp" "SKIN_R_Ring_End_Jnt_parentConstraint2.tg[0].trp"
@@ -59625,11 +59624,10 @@ connectAttr "R_Ring_End_Jnt.is" "SKIN_R_Ring_End_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_R_Ring_End_Jnt_parentConstraint2.w0" "SKIN_R_Ring_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Middle_Base_Jnt.s" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Ring_End_Jnt.s" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Ring_End_Jnt.pm" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "R_Middle_Base_Jnt.pm" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Middle_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Ring_End_Jnt_scaleConstraint1.w0" "SKIN_R_Ring_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Middle_Base_Jnt.t" "SKIN_R_Middle_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59653,11 +59651,11 @@ connectAttr "R_Middle_Base_Jnt.is" "SKIN_R_Middle_Base_Jnt_parentConstraint2.tg[
 		;
 connectAttr "SKIN_R_Middle_Base_Jnt_parentConstraint2.w0" "SKIN_R_Middle_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Middle_Mid_Jnt.s" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Middle_Base_Jnt.s" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Middle_Mid_Jnt.pm" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Middle_Base_Jnt.pm" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Middle_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Middle_Mid_Jnt.t" "SKIN_R_Middle_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59681,11 +59679,11 @@ connectAttr "R_Middle_Mid_Jnt.is" "SKIN_R_Middle_Mid_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_R_Middle_Mid_Jnt_parentConstraint2.w0" "SKIN_R_Middle_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Middle_End_Jnt.s" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Middle_Mid_Jnt.s" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Middle_End_Jnt.pm" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Middle_Mid_Jnt.pm" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Middle_End_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Middle_End_Jnt.t" "SKIN_R_Middle_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59709,11 +59707,11 @@ connectAttr "R_Middle_End_Jnt.is" "SKIN_R_Middle_End_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_R_Middle_End_Jnt_parentConstraint2.w0" "SKIN_R_Middle_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Pinky_Base_Jnt.s" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Middle_End_Jnt.s" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Pinky_Base_Jnt.pm" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Middle_End_Jnt.pm" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Middle_End_Jnt_scaleConstraint1.w0" "SKIN_R_Middle_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Pinky_Base_Jnt.t" "SKIN_R_Pinky_Base_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59737,11 +59735,11 @@ connectAttr "R_Pinky_Base_Jnt.is" "SKIN_R_Pinky_Base_Jnt_parentConstraint2.tg[0]
 		;
 connectAttr "SKIN_R_Pinky_Base_Jnt_parentConstraint2.w0" "SKIN_R_Pinky_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Pinky_Mid_Jnt.s" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Pinky_Base_Jnt.s" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Pinky_Mid_Jnt.pm" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Pinky_Base_Jnt.pm" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Pinky_Mid_Jnt.t" "SKIN_R_Pinky_Mid_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59765,11 +59763,11 @@ connectAttr "R_Pinky_Mid_Jnt.is" "SKIN_R_Pinky_Mid_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Pinky_Mid_Jnt_parentConstraint2.w0" "SKIN_R_Pinky_Mid_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Pinky_End_Jnt.s" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Pinky_Mid_Jnt.s" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Pinky_End_Jnt.pm" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Pinky_Mid_Jnt.pm" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Pinky_End_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Pinky_End_Jnt.t" "SKIN_R_Pinky_End_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -59793,9 +59791,11 @@ connectAttr "R_Pinky_End_Jnt.is" "SKIN_R_Pinky_End_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Pinky_End_Jnt_parentConstraint2.w0" "SKIN_R_Pinky_End_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Palm_Jnt.s" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Palm_Jnt.pm" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Palm_Jnt_scaleConstraint1.w0" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Pinky_End_Jnt.s" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "R_Pinky_End_Jnt.pm" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Pinky_End_Jnt_scaleConstraint1.w0" "SKIN_R_Pinky_End_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Palm_Jnt.t" "SKIN_R_Palm_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "R_Palm_Jnt.rp" "SKIN_R_Palm_Jnt_parentConstraint1.tg[0].trp";
@@ -59809,9 +59809,9 @@ connectAttr "R_Palm_Jnt.ssc" "SKIN_R_Palm_Jnt_parentConstraint1.tg[0].tsc";
 connectAttr "R_Palm_Jnt.is" "SKIN_R_Palm_Jnt_parentConstraint1.tg[0].tis";
 connectAttr "SKIN_R_Palm_Jnt_parentConstraint1.w0" "SKIN_R_Palm_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Neck01_Jnt.s" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Neck01_Jnt.pm" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Neck01_Jnt_scaleConstraint1.w0" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Palm_Jnt.s" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Palm_Jnt.pm" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Palm_Jnt_scaleConstraint1.w0" "SKIN_R_Palm_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Neck01_Jnt.t" "SKIN_Neck01_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Neck01_Jnt.rp" "SKIN_Neck01_Jnt_parentConstraint2.tg[0].trp";
@@ -59825,9 +59825,9 @@ connectAttr "Neck01_Jnt.ssc" "SKIN_Neck01_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Neck01_Jnt.is" "SKIN_Neck01_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Neck01_Jnt_parentConstraint2.w0" "SKIN_Neck01_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Neck02_Jnt.s" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Neck02_Jnt.pm" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Neck02_Jnt_scaleConstraint1.w0" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Neck01_Jnt.s" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Neck01_Jnt.pm" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Neck01_Jnt_scaleConstraint1.w0" "SKIN_Neck01_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Neck02_Jnt.t" "SKIN_Neck02_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Neck02_Jnt.rp" "SKIN_Neck02_Jnt_parentConstraint2.tg[0].trp";
@@ -59841,9 +59841,9 @@ connectAttr "Neck02_Jnt.ssc" "SKIN_Neck02_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Neck02_Jnt.is" "SKIN_Neck02_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Neck02_Jnt_parentConstraint2.w0" "SKIN_Neck02_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Neck03_Jnt.s" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Neck03_Jnt.pm" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Neck03_Jnt_scaleConstraint1.w0" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Neck02_Jnt.s" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Neck02_Jnt.pm" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Neck02_Jnt_scaleConstraint1.w0" "SKIN_Neck02_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Neck03_Jnt.t" "SKIN_Neck03_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Neck03_Jnt.rp" "SKIN_Neck03_Jnt_parentConstraint2.tg[0].trp";
@@ -59857,9 +59857,9 @@ connectAttr "Neck03_Jnt.ssc" "SKIN_Neck03_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Neck03_Jnt.is" "SKIN_Neck03_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Neck03_Jnt_parentConstraint2.w0" "SKIN_Neck03_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Head_Jnt.s" "SKIN_Head_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Head_Jnt.pm" "SKIN_Head_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Head_Jnt_scaleConstraint1.w0" "SKIN_Head_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Neck03_Jnt.s" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Neck03_Jnt.pm" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Neck03_Jnt_scaleConstraint1.w0" "SKIN_Neck03_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Head_Jnt.t" "SKIN_Head_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Head_Jnt.rp" "SKIN_Head_Jnt_parentConstraint2.tg[0].trp";
@@ -59872,6 +59872,16 @@ connectAttr "Head_Jnt.jo" "SKIN_Head_Jnt_parentConstraint2.tg[0].tjo";
 connectAttr "Head_Jnt.ssc" "SKIN_Head_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Head_Jnt.is" "SKIN_Head_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Head_Jnt_parentConstraint2.w0" "SKIN_Head_Jnt_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Head_Jnt.s" "SKIN_Head_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Head_Jnt.pm" "SKIN_Head_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Head_Jnt_scaleConstraint1.w0" "SKIN_Head_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Main_Hair01_Ctrl.s" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Main_Hair01_Ctrl.pm" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_Main_Hair01_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Main_Hair01_Ctrl.t" "SKIN_Main_Hair01_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -59889,11 +59899,11 @@ connectAttr "Main_Hair01_Ctrl.pm" "SKIN_Main_Hair01_Jnt_parentConstraint1.tg[0].
 		;
 connectAttr "SKIN_Main_Hair01_Jnt_parentConstraint1.w0" "SKIN_Main_Hair01_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Main_Hair01_Ctrl.s" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "Main_Hair02_Ctrl.s" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Main_Hair01_Ctrl.pm" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "Main_Hair02_Ctrl.pm" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_Main_Hair01_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair01_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_Main_Hair02_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Main_Hair02_Ctrl.t" "SKIN_Main_Hair02_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -59911,11 +59921,11 @@ connectAttr "Main_Hair02_Ctrl.pm" "SKIN_Main_Hair02_Jnt_parentConstraint1.tg[0].
 		;
 connectAttr "SKIN_Main_Hair02_Jnt_parentConstraint1.w0" "SKIN_Main_Hair02_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Main_Hair02_Ctrl.s" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "Main_Hair03_Ctrl.s" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Main_Hair02_Ctrl.pm" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "Main_Hair03_Ctrl.pm" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_Main_Hair02_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair02_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_Main_Hair03_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Main_Hair03_Ctrl.t" "SKIN_Main_Hair03_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -59933,16 +59943,6 @@ connectAttr "Main_Hair03_Ctrl.pm" "SKIN_Main_Hair03_Jnt_parentConstraint1.tg[0].
 		;
 connectAttr "SKIN_Main_Hair03_Jnt_parentConstraint1.w0" "SKIN_Main_Hair03_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Main_Hair03_Ctrl.s" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "Main_Hair03_Ctrl.pm" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_Main_Hair03_Jnt_scaleConstraint1.w0" "SKIN_Main_Hair03_Jnt_scaleConstraint1.tg[0].tw"
-		;
-connectAttr "L_Cheek_Ctrl.s" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Cheek_Ctrl.pm" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_L_Cheek_Jnt_scaleConstraint1.w0" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].tw"
-		;
 connectAttr "L_Cheek_Ctrl.t" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "L_Cheek_Ctrl.rp" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].trp";
 connectAttr "L_Cheek_Ctrl.rpt" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].trt";
@@ -59951,6 +59951,16 @@ connectAttr "L_Cheek_Ctrl.ro" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].tro";
 connectAttr "L_Cheek_Ctrl.s" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].ts";
 connectAttr "L_Cheek_Ctrl.pm" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].tpm";
 connectAttr "SKIN_L_Cheek_Jnt_parentConstraint1.w0" "SKIN_L_Cheek_Jnt_parentConstraint1.tg[0].tw"
+		;
+connectAttr "L_Cheek_Ctrl.s" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Cheek_Ctrl.pm" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_L_Cheek_Jnt_scaleConstraint1.w0" "SKIN_L_Cheek_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "L_Corner_Lip_Ctrl.s" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "L_Corner_Lip_Ctrl.pm" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.w0" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Corner_Lip_Ctrl.t" "SKIN_L_Corner_Lip_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -59968,11 +59978,11 @@ connectAttr "L_Corner_Lip_Ctrl.pm" "SKIN_L_Corner_Lip_Jnt_parentConstraint1.tg[0
 		;
 connectAttr "SKIN_L_Corner_Lip_Jnt_parentConstraint1.w0" "SKIN_L_Corner_Lip_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "L_Corner_Lip_Ctrl.s" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Corner_Lip_Ctrl.s" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Corner_Lip_Ctrl.pm" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Corner_Lip_Ctrl.pm" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.w0" "SKIN_L_Corner_Lip_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.w0" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Corner_Lip_Ctrl.t" "SKIN_R_Corner_Lip_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -59990,16 +60000,6 @@ connectAttr "R_Corner_Lip_Ctrl.pm" "SKIN_R_Corner_Lip_Jnt_parentConstraint1.tg[0
 		;
 connectAttr "SKIN_R_Corner_Lip_Jnt_parentConstraint1.w0" "SKIN_R_Corner_Lip_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "R_Corner_Lip_Ctrl.s" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "R_Corner_Lip_Ctrl.pm" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.w0" "SKIN_R_Corner_Lip_Jnt_scaleConstraint1.tg[0].tw"
-		;
-connectAttr "R_Cheek_Ctrl.s" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Cheek_Ctrl.pm" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_R_Cheek_Jnt_scaleConstraint1.w0" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].tw"
-		;
 connectAttr "R_Cheek_Ctrl.t" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].tt";
 connectAttr "R_Cheek_Ctrl.rp" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].trp";
 connectAttr "R_Cheek_Ctrl.rpt" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].trt";
@@ -60008,6 +60008,16 @@ connectAttr "R_Cheek_Ctrl.ro" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].tro";
 connectAttr "R_Cheek_Ctrl.s" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].ts";
 connectAttr "R_Cheek_Ctrl.pm" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].tpm";
 connectAttr "SKIN_R_Cheek_Jnt_parentConstraint1.w0" "SKIN_R_Cheek_Jnt_parentConstraint1.tg[0].tw"
+		;
+connectAttr "R_Cheek_Ctrl.s" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Cheek_Ctrl.pm" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_R_Cheek_Jnt_scaleConstraint1.w0" "SKIN_R_Cheek_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.s" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.pm" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_Upper_Lip_Jnt_scaleConstraint1.w0" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.t" "SKIN_Upper_Lip_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60025,11 +60035,11 @@ connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.pm" "SKIN_Upper_Lip_Jnt_parentC
 		;
 connectAttr "SKIN_Upper_Lip_Jnt_parentConstraint1.w0" "SKIN_Upper_Lip_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.s" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Brow_Outer_Ctrl.s" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "Akali_Base_SKIN:SKIN_Upper_Lip_Ctrl.pm" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Brow_Outer_Ctrl.pm" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_Upper_Lip_Jnt_scaleConstraint1.w0" "SKIN_Upper_Lip_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Brow_Outer_Ctrl.t" "SKIN_L_Brow_Outer_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60047,11 +60057,10 @@ connectAttr "L_Brow_Outer_Ctrl.pm" "SKIN_L_Brow_Outer_Jnt_parentConstraint1.tg[0
 		;
 connectAttr "SKIN_L_Brow_Outer_Jnt_parentConstraint1.w0" "SKIN_L_Brow_Outer_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "L_Brow_Outer_Ctrl.s" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Brow_Mid_Ctrl.s" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Brow_Mid_Ctrl.pm" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "L_Brow_Outer_Ctrl.pm" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Outer_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Brow_Mid_Ctrl.t" "SKIN_L_Brow_Mid_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60069,10 +60078,11 @@ connectAttr "L_Brow_Mid_Ctrl.pm" "SKIN_L_Brow_Mid_Jnt_parentConstraint1.tg[0].tp
 		;
 connectAttr "SKIN_L_Brow_Mid_Jnt_parentConstraint1.w0" "SKIN_L_Brow_Mid_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "L_Brow_Mid_Ctrl.s" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Brow_Mid_Ctrl.pm" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Brow_Inner_Ctrl.s" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Brow_Inner_Ctrl.pm" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Brow_Inner_Ctrl.t" "SKIN_L_Brow_Inner_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60090,11 +60100,11 @@ connectAttr "L_Brow_Inner_Ctrl.pm" "SKIN_L_Brow_Inner_Jnt_parentConstraint1.tg[0
 		;
 connectAttr "SKIN_L_Brow_Inner_Jnt_parentConstraint1.w0" "SKIN_L_Brow_Inner_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "L_Brow_Inner_Ctrl.s" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Brow_Outer_Ctrl.s" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Brow_Inner_Ctrl.pm" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Brow_Outer_Ctrl.pm" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.w0" "SKIN_L_Brow_Inner_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Brow_Outer_Ctrl.t" "SKIN_R_Brow_Outer_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60112,11 +60122,10 @@ connectAttr "R_Brow_Outer_Ctrl.pm" "SKIN_R_Brow_Outer_Jnt_parentConstraint1.tg[0
 		;
 connectAttr "SKIN_R_Brow_Outer_Jnt_parentConstraint1.w0" "SKIN_R_Brow_Outer_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "R_Brow_Outer_Ctrl.s" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Brow_Mid_Ctrl.s" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Brow_Mid_Ctrl.pm" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "R_Brow_Outer_Ctrl.pm" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Outer_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Brow_Mid_Ctrl.t" "SKIN_R_Brow_Mid_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60134,10 +60143,11 @@ connectAttr "R_Brow_Mid_Ctrl.pm" "SKIN_R_Brow_Mid_Jnt_parentConstraint1.tg[0].tp
 		;
 connectAttr "SKIN_R_Brow_Mid_Jnt_parentConstraint1.w0" "SKIN_R_Brow_Mid_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "R_Brow_Mid_Ctrl.s" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Brow_Mid_Ctrl.pm" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Brow_Inner_Ctrl.s" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Mid_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Brow_Inner_Ctrl.pm" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Brow_Inner_Ctrl.t" "SKIN_R_Brow_Inner_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60154,17 +60164,6 @@ connectAttr "R_Brow_Inner_Ctrl.s" "SKIN_R_Brow_Inner_Jnt_parentConstraint1.tg[0]
 connectAttr "R_Brow_Inner_Ctrl.pm" "SKIN_R_Brow_Inner_Jnt_parentConstraint1.tg[0].tpm"
 		;
 connectAttr "SKIN_R_Brow_Inner_Jnt_parentConstraint1.w0" "SKIN_R_Brow_Inner_Jnt_parentConstraint1.tg[0].tw"
-		;
-connectAttr "R_Brow_Inner_Ctrl.s" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "R_Brow_Inner_Ctrl.pm" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.w0" "SKIN_R_Brow_Inner_Jnt_scaleConstraint1.tg[0].tw"
-		;
-connectAttr "L_Ear_Base_Jnt.s" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Ear_Base_Jnt.pm" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Ear_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Ear_Base_Jnt.t" "SKIN_L_Ear_Base_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Ear_Base_Jnt.rp" "SKIN_L_Ear_Base_Jnt_parentConstraint2.tg[0].trp"
@@ -60185,11 +60184,10 @@ connectAttr "L_Ear_Base_Jnt.is" "SKIN_L_Ear_Base_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_L_Ear_Base_Jnt_parentConstraint2.w0" "SKIN_L_Ear_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Earing_01_Jnt.s" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Ear_Base_Jnt.s" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Ear_Base_Jnt.pm" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "L_Earing_01_Jnt.pm" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Earing_01_Jnt_scaleConstraint1.w0" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Ear_Base_Jnt_scaleConstraint1.w0" "SKIN_L_Ear_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Earing_01_Jnt.t" "SKIN_L_Earing_01_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -60213,11 +60211,11 @@ connectAttr "L_Earing_01_Jnt.is" "SKIN_L_Earing_01_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Earing_01_Jnt_parentConstraint2.w0" "SKIN_L_Earing_01_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "L_Earing_02_Jnt.s" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "L_Earing_01_Jnt.s" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "L_Earing_02_Jnt.pm" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Earing_01_Jnt.pm" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_L_Earing_02_Jnt_scaleConstraint1.w0" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Earing_01_Jnt_scaleConstraint1.w0" "SKIN_L_Earing_01_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Earing_02_Jnt.t" "SKIN_L_Earing_02_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -60241,10 +60239,11 @@ connectAttr "L_Earing_02_Jnt.is" "SKIN_L_Earing_02_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_L_Earing_02_Jnt_parentConstraint2.w0" "SKIN_L_Earing_02_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Ear_Base_Jnt.s" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Ear_Base_Jnt.pm" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Earing_02_Jnt.s" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "SKIN_R_Ear_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "L_Earing_02_Jnt.pm" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_L_Earing_02_Jnt_scaleConstraint1.w0" "SKIN_L_Earing_02_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Ear_Base_Jnt.t" "SKIN_R_Ear_Base_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Ear_Base_Jnt.rp" "SKIN_R_Ear_Base_Jnt_parentConstraint2.tg[0].trp"
@@ -60265,11 +60264,10 @@ connectAttr "R_Ear_Base_Jnt.is" "SKIN_R_Ear_Base_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_R_Ear_Base_Jnt_parentConstraint2.w0" "SKIN_R_Ear_Base_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Earing_01_Jnt.s" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Ear_Base_Jnt.s" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Ear_Base_Jnt.pm" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "R_Earing_01_Jnt.pm" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_R_Earing_01_Jnt_scaleConstraint1.w0" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Ear_Base_Jnt_scaleConstraint1.w0" "SKIN_R_Ear_Base_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Earing_01_Jnt.t" "SKIN_R_Earing_01_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -60293,11 +60291,11 @@ connectAttr "R_Earing_01_Jnt.is" "SKIN_R_Earing_01_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Earing_01_Jnt_parentConstraint2.w0" "SKIN_R_Earing_01_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Earing_02_Jnt.s" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].ts"
+connectAttr "R_Earing_01_Jnt.s" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].ts"
 		;
-connectAttr "R_Earing_02_Jnt.pm" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "R_Earing_01_Jnt.pm" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Earing_02_Jnt_scaleConstraint1.w0" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_R_Earing_01_Jnt_scaleConstraint1.w0" "SKIN_R_Earing_01_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Earing_02_Jnt.t" "SKIN_R_Earing_02_Jnt_parentConstraint2.tg[0].tt"
 		;
@@ -60321,6 +60319,16 @@ connectAttr "R_Earing_02_Jnt.is" "SKIN_R_Earing_02_Jnt_parentConstraint2.tg[0].t
 		;
 connectAttr "SKIN_R_Earing_02_Jnt_parentConstraint2.w0" "SKIN_R_Earing_02_Jnt_parentConstraint2.tg[0].tw"
 		;
+connectAttr "R_Earing_02_Jnt.s" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "R_Earing_02_Jnt.pm" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Earing_02_Jnt_scaleConstraint1.w0" "SKIN_R_Earing_02_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Top_Teeth_Jnt.s" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Top_Teeth_Jnt.pm" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKN_Top_Teeth_Jnt_scaleConstraint1.w0" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].tw"
+		;
 connectAttr "Top_Teeth_Jnt.t" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Top_Teeth_Jnt.rp" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].trp";
 connectAttr "Top_Teeth_Jnt.rpt" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].trt";
@@ -60333,9 +60341,9 @@ connectAttr "Top_Teeth_Jnt.ssc" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Top_Teeth_Jnt.is" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKN_Top_Teeth_Jnt_parentConstraint2.w0" "SKN_Top_Teeth_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Top_Teeth_Jnt.s" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Top_Teeth_Jnt.pm" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKN_Top_Teeth_Jnt_scaleConstraint1.w0" "SKN_Top_Teeth_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "Bot_Teeth_Jnt.s" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Bot_Teeth_Jnt.pm" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKN_Bot_Teeth_Jnt_scaleConstraint1.w0" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Bot_Teeth_Jnt.t" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Bot_Teeth_Jnt.rp" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].trp";
@@ -60348,15 +60356,6 @@ connectAttr "Bot_Teeth_Jnt.jo" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].tjo";
 connectAttr "Bot_Teeth_Jnt.ssc" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Bot_Teeth_Jnt.is" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKN_Bot_Teeth_Jnt_parentConstraint2.w0" "SKN_Bot_Teeth_Jnt_parentConstraint2.tg[0].tw"
-		;
-connectAttr "Bot_Teeth_Jnt.s" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Bot_Teeth_Jnt.pm" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKN_Bot_Teeth_Jnt_scaleConstraint1.w0" "SKN_Bot_Teeth_Jnt_scaleConstraint1.tg[0].tw"
-		;
-connectAttr "L_Eye_Ball_Jnt.s" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "L_Eye_Ball_Jnt.pm" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.w0" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "L_Eye_Ball_Jnt.t" "SKIN_L_Eye_Ball_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "L_Eye_Ball_Jnt.rp" "SKIN_L_Eye_Ball_Jnt_parentConstraint2.tg[0].trp"
@@ -60377,10 +60376,10 @@ connectAttr "L_Eye_Ball_Jnt.is" "SKIN_L_Eye_Ball_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_L_Eye_Ball_Jnt_parentConstraint2.w0" "SKIN_L_Eye_Ball_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "R_Eye_Ball_Jnt.s" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "R_Eye_Ball_Jnt.pm" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].tpm"
+connectAttr "L_Eye_Ball_Jnt.s" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "L_Eye_Ball_Jnt.pm" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].tpm"
 		;
-connectAttr "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.w0" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.w0" "SKIN_L_Eye_Ball_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "R_Eye_Ball_Jnt.t" "SKIN_R_Eye_Ball_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "R_Eye_Ball_Jnt.rp" "SKIN_R_Eye_Ball_Jnt_parentConstraint2.tg[0].trp"
@@ -60401,9 +60400,10 @@ connectAttr "R_Eye_Ball_Jnt.is" "SKIN_R_Eye_Ball_Jnt_parentConstraint2.tg[0].tis
 		;
 connectAttr "SKIN_R_Eye_Ball_Jnt_parentConstraint2.w0" "SKIN_R_Eye_Ball_Jnt_parentConstraint2.tg[0].tw"
 		;
-connectAttr "Jaw_Jnt.s" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].ts";
-connectAttr "Jaw_Jnt.pm" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].tpm";
-connectAttr "SKIN_Jaw_Jnt_scaleConstraint1.w0" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].tw"
+connectAttr "R_Eye_Ball_Jnt.s" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "R_Eye_Ball_Jnt.pm" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.w0" "SKIN_R_Eye_Ball_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Jaw_Jnt.t" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].tt";
 connectAttr "Jaw_Jnt.rp" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].trp";
@@ -60416,6 +60416,16 @@ connectAttr "Jaw_Jnt.jo" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].tjo";
 connectAttr "Jaw_Jnt.ssc" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].tsc";
 connectAttr "Jaw_Jnt.is" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].tis";
 connectAttr "SKIN_Jaw_Jnt_parentConstraint2.w0" "SKIN_Jaw_Jnt_parentConstraint2.tg[0].tw"
+		;
+connectAttr "Jaw_Jnt.s" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].ts";
+connectAttr "Jaw_Jnt.pm" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].tpm";
+connectAttr "SKIN_Jaw_Jnt_scaleConstraint1.w0" "SKIN_Jaw_Jnt_scaleConstraint1.tg[0].tw"
+		;
+connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.s" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].ts"
+		;
+connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.pm" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].tpm"
+		;
+connectAttr "SKIN_Lower_Lip_Jnt_scaleConstraint1.w0" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].tw"
 		;
 connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.t" "SKIN_Lower_Lip_Jnt_parentConstraint1.tg[0].tt"
 		;
@@ -60433,18 +60443,14 @@ connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.pm" "SKIN_Lower_Lip_Jnt_parentC
 		;
 connectAttr "SKIN_Lower_Lip_Jnt_parentConstraint1.w0" "SKIN_Lower_Lip_Jnt_parentConstraint1.tg[0].tw"
 		;
-connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.s" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].ts"
-		;
-connectAttr "Akali_Base_SKIN:SKIN_Lower_Lip_Ctrl.pm" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].tpm"
-		;
-connectAttr "SKIN_Lower_Lip_Jnt_scaleConstraint1.w0" "SKIN_Lower_Lip_Jnt_scaleConstraint1.tg[0].tw"
-		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "Group49260SG1.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "Group49260SG1.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "lambert4SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "lambert3.oc" "Group49260SG1.ss";
@@ -60989,81 +60995,81 @@ connectAttr "L_Lid_Combo_Ctrl_Soft_ComboZ_MDN.oz" "L_LowerLid_Side_Soft_MDN.i1z"
 		;
 connectAttr "L_Lid_Combo_Ctrl_Soft_ComboY_MDN.oy" "unitConversion34.i";
 connectAttr "L_LowerLid_Side_Soft_MDN.oz" "unitConversion35.i";
-connectAttr "unitConversion24.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "Mask_MAT.oc" "lambert4SG.ss";
+connectAttr "lambert4SG.msg" "materialInfo7.sg";
+connectAttr "Mask_MAT.msg" "materialInfo7.m";
+connectAttr "R_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "R_UpperLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "unitConversion29.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
-connectAttr "unitConversion23.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "R_Lid_Combo_Ctrl_POSZ_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "unitConversion29.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "unitConversion24.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "R_lowerLid_SoftAttr_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "R_UpperLId_Soft_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "unitConversion28.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
-		;
-connectAttr "R_LowerLid_Combo_Ctrl_POSY_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
-		;
-connectAttr "R_Lid_Combo_Ctrl_POSZ_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
-connectAttr "R_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+connectAttr "R_lowerLid_SoftAttr_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
 connectAttr "R_LowerLId_Soft_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
 		;
-connectAttr "L_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
+connectAttr "R_Lid_Soft_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
 		;
-connectAttr "R_Lid_Soft_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
+connectAttr "R_LowerEye_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
 		;
-connectAttr "R_Lid_Combo_Ctrl_POSZ_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
+connectAttr "unitConversion28.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
 		;
-connectAttr "R_UpperLId_Soft_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
+connectAttr "R_Lid_Combo_Ctrl_POSZ_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
 		;
-connectAttr "Eyes_All_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[18].dn";
-connectAttr "R_LowerEye_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
+connectAttr "R_UpperLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
 		;
-connectAttr "L_LowerLid_Side_Soft_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[0].dn"
+connectAttr "Eyes_All_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[16].dn";
+connectAttr "L_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
 		;
-connectAttr "L_LowerLid_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[1].dn"
+connectAttr "unitConversion23.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
 		;
-connectAttr "unitConversion31.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[2].dn"
+connectAttr "R_LowerLid_Combo_Ctrl_POSY_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[19].dn"
 		;
-connectAttr "L_Lid_Combo_Ctrl_Soft_ComboZ_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[3].dn"
+connectAttr "unitConversion33.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[1].dn"
 		;
-connectAttr "L_UpperLid_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[4].dn"
+connectAttr "L_LowerLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[2].dn"
 		;
-connectAttr "L_Lid_Combo_Ctrl_Soft_ComboY_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[5].dn"
+connectAttr "unitConversion32.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[3].dn"
 		;
-connectAttr "unitConversion34.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[6].dn"
+connectAttr "unitConversion34.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[4].dn"
 		;
-connectAttr "L_LowerLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[7].dn"
+connectAttr "L_UpperLid_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[5].dn"
 		;
-connectAttr "unitConversion33.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[8].dn"
+connectAttr "L_UpperLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[6].dn"
 		;
-connectAttr "unitConversion32.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[9].dn"
+connectAttr "multiplyDivide1.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[7].dn";
+connectAttr "L_LowerLid_Side_Soft_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[8].dn"
 		;
-connectAttr "L_Lid_Combo_Ctrl_POSZ_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[10].dn"
+connectAttr "L_Lid_Combo_Ctrl_POSY_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[9].dn"
 		;
-connectAttr "L_Lid_Combo_Ctrl_POSY_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[11].dn"
+connectAttr "L_Lid_Combo_Ctrl_Soft_ComboY_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[10].dn"
 		;
-connectAttr "L_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[12].dn"
+connectAttr "unitConversion31.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[12].dn"
 		;
-connectAttr "multiplyDivide1.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[13].dn"
+connectAttr "Eyes_All_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[13].dn";
+connectAttr "L_Lid_Combo_Ctrl_POSZ_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[14].dn"
 		;
-connectAttr "L_LowerLid_Combo_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[14].dn"
+connectAttr "unitConversion35.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[15].dn"
 		;
-connectAttr "L_UpperLid_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[16].dn"
+connectAttr "L_Lid_Combo_Ctrl_Soft_ComboZ_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[16].dn"
 		;
-connectAttr "unitConversion35.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[18].dn"
+connectAttr "L_LowerLid_Attr_Combo_AVRG.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[17].dn"
 		;
-connectAttr "Eyes_All_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[19].dn";
-connectAttr "Body_Resolution_RVN.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[1].dn"
+connectAttr "L_Eye_Ball_Aim_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[18].dn"
 		;
-connectAttr "World_FK_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[4].dn";
-connectAttr "Proxy_Mesh_Group.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[5].dn"
+connectAttr "L_LowerLid_Combo_Reverse_MDN.msg" "MayaNodeEditorSavedTabsInfo.tgi[1].ni[19].dn"
 		;
-connectAttr "World_FK_CtrlShape.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[7].dn"
+connectAttr "World_FK_CtrlShape.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[1].dn"
 		;
+connectAttr "World_FK_Ctrl.msg" "MayaNodeEditorSavedTabsInfo.tgi[2].ni[3].dn";
 connectAttr "Group49260SG1.pa" ":renderPartition.st" -na;
+connectAttr "lambert4SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert3.msg" ":defaultShaderList1.s" -na;
+connectAttr "Mask_MAT.msg" ":defaultShaderList1.s" -na;
 connectAttr "IK_R_Foot_Bank_CDN.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "IK_L_Foot_Roll_CDN.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "IK_L_Foot_Roll_MDN.msg" ":defaultRenderUtilityList1.u" -na;

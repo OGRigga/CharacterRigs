@@ -73,5 +73,3 @@ def fkIkSnapping():
             
     else:
         sys.stderr.write("Error! Nothing was selected")
-       
-fkIkSnapping()  
